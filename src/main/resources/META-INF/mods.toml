@@ -1,0 +1,44 @@
+modLoader="javafml" #mandatory
+
+loaderVersion="[31,)" #mandatory
+
+issueTrackerURL="https://github.com/dani0105/BlacksmithMod/issues"
+
+showAsResourcePack=false
+
+[[mods]] #mandatory
+
+modId="blacksmithmod" #mandatory
+
+version="1.0" #mandatory
+
+displayName="BlacksmithMod" #mandatory
+
+displayURL="https://github.com/dani0105/BlacksmithMod" #optional
+
+logoFile="blacksmithmod.png"
+
+authors="dani0105" #optional
+
+description='''
+    Este Mod agrega un nuevo sistema de herrería al juego.
+'''
+
+[[dependencies.blacksmithmod]] #optional
+
+    modId="forge" #mandatory
+
+    mandatory=true #mandatory
+
+    versionRange="[31,)" #mandatory
+
+    ordering="NONE"
+
+    side="BOTH"
+
+[[dependencies.blacksmithmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
