@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "station",
+  "ingredients":  [
+    {"item": "minecraft:paper"},
+    {"item": "minecraft:saddle"}
+  ],
+  "result": {
+    "item": "blacksmithmod:saddle_pattern",
+    "count": 1
+  }
+}
+

@@ -3,10 +3,8 @@ package com.dani.blacksmithmod.setup;
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.blocks.Anvil;
 import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
-import com.dani.blacksmithmod.items.AnvilBlockItem;
-import com.dani.blacksmithmod.items.Hammer;
-import com.dani.blacksmithmod.items.IronShield;
-import com.dani.blacksmithmod.tiles.AnvilTileEntity;
+import com.dani.blacksmithmod.items.*;
+import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
@@ -36,6 +34,14 @@ public class RegistryHandler {
     //Items
     public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", Hammer::new);
     public static final RegistryObject<Item> IRON_SHIELD = ITEMS.register("iron_shield", IronShield::new);
+    public static final RegistryObject<Item> SADDLE_PATTERN = ITEMS.register("saddle_pattern", SaddlePattern::new);
+
+    //Shield Patterns
+    public static final RegistryObject<Item> SHIELD_PATTERN = ITEMS.register("shield_pattern", ShieldPattern::new);
+    public static final RegistryObject<Item> IORN_SHIELD_PATTERN = ITEMS.register("iron_shield_pattern", IronShieldPattern::new);
+    public static final RegistryObject<Item> GOLD_SHIELD_PATTERN = ITEMS.register("gold_shield_pattern", GoldShieldPattern::new);
+    public static final RegistryObject<Item> DIAMOND_SHIELD_PATTERN = ITEMS.register("diamond_shield_pattern", DiamondShieldPattern::new);
+
 
     //Blocks
     public static final RegistryObject<Block> ANVIL = BLOCKS.register("anvil", Anvil::new);
