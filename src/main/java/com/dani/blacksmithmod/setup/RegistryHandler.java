@@ -2,11 +2,11 @@ package com.dani.blacksmithmod.setup;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.blocks.Anvil;
-import com.dani.blacksmithmod.containers.AnvilContainer;
+import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
 import com.dani.blacksmithmod.items.AnvilBlockItem;
 import com.dani.blacksmithmod.items.Hammer;
 import com.dani.blacksmithmod.items.IronShield;
-import com.dani.blacksmithmod.tiles.TileEntityAnvil;
+import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
@@ -44,7 +44,7 @@ public class RegistryHandler {
     public static final RegistryObject<BlockItem> ANVIL_BLOCK_ITEM = ITEMS.register("anvil", () -> new AnvilBlockItem(ANVIL.get()) );
 
     //TileEntity
-    public static final RegistryObject<TileEntityType<TileEntityAnvil>> ANVIL_TILE_ENTITY = TILES.register("anvil", () -> TileEntityType.Builder.create(TileEntityAnvil::new, ANVIL.get()).build(null));
+    public static final RegistryObject<TileEntityType<AnvilTileEntity>> ANVIL_TILE_ENTITY = TILES.register("anvil", () -> TileEntityType.Builder.create(AnvilTileEntity::new, ANVIL.get()).build(null));
 
     //Containers
     public static final RegistryObject<ContainerType<AnvilContainer>> AVIL_CONTAINER = CONTAINERS.register("anvil", () ->IForgeContainerType.create((windowId, inv, data) -> {
