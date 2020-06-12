@@ -1,6 +1,6 @@
 package com.dani.blacksmithmod.blocks;
 
-import com.dani.blacksmithmod.tiles.TileEntityAnvil;
+import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -48,12 +48,12 @@ public class Anvil extends Block {
      * Este metodo crea el tileEntity al bloque
      * @param state Estado del bloque
      * @param world Mundo donde esta el bloque
-     * @return retorna un TileEntityAnvil
+     * @return retorna un AnvilTileEntity
      */
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new TileEntityAnvil();
+        return new AnvilTileEntity();
     }
 
     @Override

@@ -1,16 +1,10 @@
-package com.dani.blacksmithmod.containers.screens;
+package com.dani.blacksmithmod.containers.anvilcontainer.screen;
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import com.dani.blacksmithmod.containers.AnvilContainer;
+import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.IContainerListener;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -20,12 +14,10 @@ public class AnvilScreen extends ContainerScreen<AnvilContainer> {
 
     public AnvilScreen(AnvilContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
-        System.out.println("AvilScreen");
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        System.out.println("Dibujando Screen");
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.getTextureManager().bindTexture(GUI_BACKGROUND);
         int relX = (this.width - this.xSize) / 2;
