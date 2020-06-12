@@ -4,7 +4,7 @@ import com.dani.blacksmithmod.containers.anvilcontainer.slot.IngredientSlot;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.OutputSlot;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.PatternSlot;
 import com.dani.blacksmithmod.setup.RegistryHandler;
-import com.dani.blacksmithmod.tiles.AnvilTileEntity;
+import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -60,6 +60,9 @@ public class AnvilContainer extends Container {
         }
     }
 
+    /**
+     * Agrega los Slots de la interfaz
+     */
     private void anvilSlots(){
         this.addSlot((Slot)new PatternSlot((IItemHandler)this.pattern, 0, 92, 50));
         this.addSlot((Slot)new OutputSlot((IItemHandler)this.output, 0, 144, 50));
@@ -73,6 +76,7 @@ public class AnvilContainer extends Container {
         }
 
     }
+
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {

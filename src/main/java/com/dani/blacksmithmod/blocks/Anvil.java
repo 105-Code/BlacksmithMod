@@ -1,6 +1,6 @@
 package com.dani.blacksmithmod.blocks;
 
-import com.dani.blacksmithmod.tiles.AnvilTileEntity;
+import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
