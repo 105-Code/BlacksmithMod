@@ -2,5 +2,10 @@
   "item.blacksmithmod.hammer":"Hammer",
   "itemGroup.blacksmithmod": "Blacksmith Mod",
   "block.blacksmithmod.anvil":"Anvil",
-  "item.blacksmithmod.iron_shield":"Iron Shield"
+  "item.blacksmithmod.iron_shield":"Iron Shield",
+  "item.blacksmithmod.saddle_pattern": "Saddle Pattern",
+  "item.blacksmithmod.shield_pattern": "Shield Pattern",
+  "item.blacksmithmod.iron_shield_pattern": "Iron Shield Pattern",
+  "item.blacksmithmod.gold_shield_pattern": "Gold Shield Pattern",
+  "item.blacksmithmod.diamond_shield_pattern": "Diamond Shield Pattern"
 }
