@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientSetup {
 
     public static void init(final FMLClientSetupEvent event) {
-        ScreenManager.registerFactory(RegistryHandler.AVIL_CONTAINER.get(), AnvilScreen::new);
+        ScreenManager.registerFactory(RegistryHandler.ANVIL_CONTAINER.get(), AnvilScreen::new);
     }
 
 }

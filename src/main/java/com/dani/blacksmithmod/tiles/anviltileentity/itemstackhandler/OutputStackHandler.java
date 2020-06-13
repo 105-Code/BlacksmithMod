@@ -1,5 +1,6 @@
 package com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler;
 
+import com.dani.blacksmithmod.items.itemabstract.Pattern;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -16,10 +17,8 @@ public class OutputStackHandler extends ItemStackHandler {
     }
 
     @Override
-    @Nonnull
-    public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-        return ItemStack.EMPTY;
+    public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+        return false;
     }
-
 
 }

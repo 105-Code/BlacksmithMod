@@ -29,7 +29,7 @@ public class AnvilContainer extends Container {
     private String outputItemName;
 
     public AnvilContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(RegistryHandler.AVIL_CONTAINER.get(), windowId);
+        super(RegistryHandler.ANVIL_CONTAINER.get(), windowId);
 
         tileEntity = (AnvilTileEntity) world.getTileEntity(pos);
 
@@ -43,6 +43,7 @@ public class AnvilContainer extends Container {
 
         this.addPlayerSlots(playerInventory);
         this.anvilSlots();
+
     }
 
     /**

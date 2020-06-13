@@ -53,7 +53,7 @@ public class RegistryHandler {
     public static final RegistryObject<TileEntityType<AnvilTileEntity>> ANVIL_TILE_ENTITY = TILES.register("anvil", () -> TileEntityType.Builder.create(AnvilTileEntity::new, ANVIL.get()).build(null));
 
     //Containers
-    public static final RegistryObject<ContainerType<AnvilContainer>> AVIL_CONTAINER = CONTAINERS.register("anvil", () ->IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<ContainerType<AnvilContainer>> ANVIL_CONTAINER = CONTAINERS.register("anvil", () ->IForgeContainerType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         return new AnvilContainer(windowId, BlacksmithMod.proxy.getClientWorld(), pos, inv, BlacksmithMod.proxy.getClientPlayer());
     }));
