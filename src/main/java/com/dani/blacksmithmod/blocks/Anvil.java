@@ -1,5 +1,6 @@
 package com.dani.blacksmithmod.blocks;
 
+import com.dani.blacksmithmod.items.Hammer;
 import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -25,6 +26,7 @@ import javax.annotation.Nullable;
 public class Anvil extends Block {
 
     private static final Logger LOGGER = LogManager.getLogger();
+
 
     public Anvil() {
         super(Block.Properties.create(Material.ANVIL)
@@ -69,4 +71,16 @@ public class Anvil extends Block {
         return ActionResultType.SUCCESS;
     }
 
+    // Cuando es True isremote() es el Cliente y si es False es El servidor
+    @Override
+    public void onBlockClicked(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
+        if(!worldIn.isRemote()){
+            if(player.inventory.getCurrentItem().getItem() instanceof Hammer){
+                TileEntity tileEntity = worldIn.getTileEntity(pos);
+                if(tileEntity instanceof AnvilTileEntity){
+                    ((AnvilTileEntity) tileEntity).addHit();
+                }
+            }
+        }
+    }
 }
