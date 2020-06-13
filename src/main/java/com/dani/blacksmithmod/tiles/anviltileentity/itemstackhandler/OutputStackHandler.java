@@ -1,10 +1,6 @@
 package com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler;
 
-import com.dani.blacksmithmod.items.DiamondShieldPattern;
-import com.dani.blacksmithmod.items.GoldShieldPattern;
-import com.dani.blacksmithmod.items.IronShield;
-import com.dani.blacksmithmod.items.itemabstract.Pattern;
-import com.dani.blacksmithmod.setup.RegistryHandler;
+import com.dani.blacksmithmod.setup.ItemRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.enums.TypePattern;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -32,13 +28,13 @@ public class OutputStackHandler extends ItemStackHandler {
                 this.setStackInSlot(0,new ItemStack(Items.SADDLE,1));
                 break;
             case DIAMOND_SHIELD:
-                this.setStackInSlot(0,new ItemStack(Items.SADDLE,1));
+                this.setStackInSlot(0,new ItemStack(ItemRegister.DIAMOND_SHIELD,1));
                 break;
             case GOLD_SHIELD:
-                this.setStackInSlot(0,new ItemStack(new IronShield(),1));
+                this.setStackInSlot(0,new ItemStack(ItemRegister.GOLD_SHIELD,1));
                 break;
             case IRON_SHIELD:
-                this.setStackInSlot(0,new ItemStack(RegistryHandler.IRON_SHIELD.get(),1));
+                this.setStackInSlot(0,new ItemStack(ItemRegister.IRON_SHIELD,1));
                 break;
             case SHIELD:
                 this.setStackInSlot(0,new ItemStack(Items.SHIELD,1));

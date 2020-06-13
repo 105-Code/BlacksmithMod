@@ -13,6 +13,7 @@ public class IronShieldPattern extends Pattern {
         super(new Item.Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(1), TypePattern.IRON_SHIELD);
+        this.setRegistryName(BlacksmithMod.MODID,"iron_shield_pattern");
         this.patternMaterials = new ItemStack[]{new ItemStack(Items.IRON_INGOT, 4)};
     }
 

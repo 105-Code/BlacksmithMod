@@ -2,7 +2,7 @@ package com.dani.blacksmithmod.util;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.containers.anvilcontainer.screen.AnvilScreen;
-import com.dani.blacksmithmod.setup.RegistryHandler;
+import com.dani.blacksmithmod.setup.ContainerRegister;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientSetup {
 
     public static void init(final FMLClientSetupEvent event) {
-        ScreenManager.registerFactory(RegistryHandler.ANVIL_CONTAINER.get(), AnvilScreen::new);
+        ScreenManager.registerFactory(ContainerRegister.ANVIL_CONTAINER, AnvilScreen::new);
     }
 
 }

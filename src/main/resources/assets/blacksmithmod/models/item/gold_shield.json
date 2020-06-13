@@ -1,0 +1,14 @@
+{
+  "parent":"blacksmithmod:item/shield_base",
+  "textures": {
+    "layer0":"blacksmithmod:items/gold_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "blacksmithmod:item/gold_shield_blocking"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package com.dani.blacksmithmod.tiles.anviltileentity;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
+import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.MaterialStackHandler;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.OutputStackHandler;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.PatternStackHandler;
@@ -25,12 +26,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
-import net.minecraftforge.items.ItemStackHandler;
-
 import javax.annotation.Nullable;
 
-import static com.dani.blacksmithmod.setup.RegistryHandler.ANVIL_TILE_ENTITY;
 
 
 public class AnvilTileEntity extends TileEntity  implements  INamedContainerProvider {
@@ -42,12 +39,11 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
 
 
     public AnvilTileEntity() {
-        super(ANVIL_TILE_ENTITY.get());
+        super(TileEntityRegister.ANVIL_TILE_ENTITY);
         this.pattern = new PatternStackHandler();
         this.ingredients = new MaterialStackHandler(this.pattern,6);
         this.output = new OutputStackHandler();
         this.hit=0;
-
     }
 
 
@@ -62,7 +58,6 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
             this.ingredients.clear();
             return true;
         }
-
         return false;
     }
 

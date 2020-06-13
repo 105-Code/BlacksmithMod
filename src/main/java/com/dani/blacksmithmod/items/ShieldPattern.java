@@ -13,8 +13,7 @@ public class ShieldPattern extends Pattern {
         super(new Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(1), TypePattern.SHIELD);
-
-
+        this.setRegistryName(BlacksmithMod.MODID,"shield_pattern");
         this.patternMaterials = new ItemStack[]{new ItemStack(Items.OAK_LOG, 4)};
     }
 

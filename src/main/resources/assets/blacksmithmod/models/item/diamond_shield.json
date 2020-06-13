@@ -1,0 +1,14 @@
+{
+  "parent":"blacksmithmod:item/shield_base",
+  "textures": {
+    "layer0":"blacksmithmod:items/diamond_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "blacksmithmod:item/diamond_shield_blocking"
+    }
+  ]
+}

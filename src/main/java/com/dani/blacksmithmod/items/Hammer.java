@@ -10,5 +10,6 @@ public class Hammer extends Item {
         super(new Item.Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(2));
+        this.setRegistryName(BlacksmithMod.MODID,"hammer");
     }
 }

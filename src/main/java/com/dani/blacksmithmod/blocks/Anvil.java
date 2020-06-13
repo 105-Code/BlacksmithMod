@@ -1,5 +1,6 @@
 package com.dani.blacksmithmod.blocks;
 
+import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.Hammer;
 import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.block.Block;
@@ -25,15 +26,13 @@ import javax.annotation.Nullable;
 
 public class Anvil extends Block {
 
-    private static final Logger LOGGER = LogManager.getLogger();
-
-
     public Anvil() {
         super(Block.Properties.create(Material.ANVIL)
                 .hardnessAndResistance(5.8f,6.0f)
                 .sound(SoundType.ANVIL)
                 .harvestLevel(2)
                 .harvestTool(ToolType.PICKAXE));
+        this.setRegistryName(BlacksmithMod.MODID,"anvil");
     }
 
     /**
@@ -60,7 +59,6 @@ public class Anvil extends Block {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit){
-        LOGGER.info("Click");
         if(worldIn.isRemote)
             return ActionResultType.PASS;
 

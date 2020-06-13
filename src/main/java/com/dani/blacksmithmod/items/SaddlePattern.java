@@ -13,6 +13,7 @@ public class SaddlePattern extends Pattern {
         super(new Item.Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(1), TypePattern.SADDLE);
+        this.setRegistryName(BlacksmithMod.MODID,"saddle_pattern");
         this.patternMaterials = new ItemStack[]{new ItemStack(Items.IRON_INGOT, 2),new ItemStack(Items.LEATHER,4)};
     }
 

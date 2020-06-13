@@ -3,18 +3,15 @@ package com.dani.blacksmithmod.containers.anvilcontainer;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.IngredientSlot;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.OutputSlot;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.PatternSlot;
-import com.dani.blacksmithmod.setup.RegistryHandler;
+import com.dani.blacksmithmod.setup.BlockRegister;
+import com.dani.blacksmithmod.setup.ContainerRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.IWorldPosCallable;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
@@ -33,7 +30,7 @@ public class AnvilContainer extends Container{
     private String outputItemName;
 
     public AnvilContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(RegistryHandler.ANVIL_CONTAINER.get(), windowId);
+        super(ContainerRegister.ANVIL_CONTAINER, windowId);
 
         tileEntity = (AnvilTileEntity) world.getTileEntity(pos);
 
@@ -84,7 +81,7 @@ public class AnvilContainer extends Container{
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, RegistryHandler.ANVIL.get());
+        return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, BlockRegister.ANVIL);
     }
 
 

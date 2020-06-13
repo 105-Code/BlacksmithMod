@@ -13,6 +13,7 @@ public class GoldShieldPattern extends Pattern {
         super(new Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(1), TypePattern.GOLD_SHIELD);
+        this.setRegistryName(BlacksmithMod.MODID,"gold_shield_pattern");
         this.patternMaterials = new ItemStack[]{new ItemStack(Items.GOLD_INGOT, 4)};
     }
 

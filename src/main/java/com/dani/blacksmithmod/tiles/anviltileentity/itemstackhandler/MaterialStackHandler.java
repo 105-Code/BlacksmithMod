@@ -42,8 +42,10 @@ public class MaterialStackHandler extends ItemStackHandler {
 
     public void clear(){
         for(int i = 0; i < this.getSlots();i++){
+            ItemStack stack= this.getStackInSlot(i);
             this.setStackInSlot(i,new ItemStack(Items.AIR) );
         }
+
     }
 
 }

@@ -17,6 +17,7 @@ public class DiamondShieldPattern extends Pattern {
         super(new Properties()
                 .group(BlacksmithMod.TAB)
                 .maxDamage(1), TypePattern.DIAMOND_SHIELD);
+        this.setRegistryName(BlacksmithMod.MODID,"diamond_shield_pattern");
         this.patternMaterials = new ItemStack[]{new ItemStack(Items.DIAMOND, 4)};
     }
 

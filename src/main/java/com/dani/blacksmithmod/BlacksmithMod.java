@@ -1,6 +1,6 @@
 package com.dani.blacksmithmod;
 
-import com.dani.blacksmithmod.setup.RegistryHandler;
+import com.dani.blacksmithmod.setup.ItemRegister;
 import com.dani.blacksmithmod.util.ClientProxy;
 import com.dani.blacksmithmod.util.ClientSetup;
 import com.dani.blacksmithmod.util.IProxy;
@@ -27,7 +27,7 @@ public class BlacksmithMod {
     public static final ItemGroup TAB = new ItemGroup(MODID){
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.HAMMER.get());
+            return new ItemStack(ItemRegister.HAMMER);
         }
     };
 
@@ -35,7 +35,6 @@ public class BlacksmithMod {
     public BlacksmithMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        RegistryHandler.init();
         MinecraftForge.EVENT_BUS.register(this);
     }
 
