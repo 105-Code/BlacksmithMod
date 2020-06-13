@@ -1,6 +1,14 @@
 {
-  "parent": "item/generated",
+  "parent":"blacksmithmod:item/shield_base",
   "textures": {
-    "layer0": "blacksmithmod:items/iron_shield"
-  }
+    "layer0":"blacksmithmod:items/iron_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "blacksmithmod:item/iron_shield_blocking"
+    }
+  ]
 }
