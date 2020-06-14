@@ -2,6 +2,8 @@ package com.dani.blacksmithmod.tiles.anviltileentity;
 
 
 import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
+import com.dani.blacksmithmod.items.recipes.DiamondShieldRecipe;
+import com.dani.blacksmithmod.items.recipes.GoldShieldRecipe;
 import com.dani.blacksmithmod.items.recipes.IronShieldRecipe;
 import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.MaterialStackHandler;
@@ -27,7 +29,11 @@ import javax.annotation.Nullable;
 public class AnvilTileEntity extends TileEntity  implements  INamedContainerProvider {
 
     public MaterialStackHandler materials;
-    private final IRecipe<CraftingInventory>[] recipes = new IRecipe[]{new IronShieldRecipe()};
+    private final IRecipe<CraftingInventory>[] recipes = new IRecipe[]{
+            new IronShieldRecipe(),
+            new GoldShieldRecipe(),
+            new DiamondShieldRecipe()
+    };
     public final OutputStackHandler output;
     private short hit;
 

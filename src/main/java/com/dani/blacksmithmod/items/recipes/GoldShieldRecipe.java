@@ -7,10 +7,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
-public class IronShieldRecipe extends Recipe {
+public class GoldShieldRecipe extends Recipe {
 
 
-    public IronShieldRecipe() {
+    public GoldShieldRecipe() {
         super( new Item[]{
                 Items.AIR,Items.IRON_INGOT,Items.AIR,
                 Items.IRON_INGOT,Items.AIR,Items.IRON_INGOT,
@@ -24,7 +24,7 @@ public class IronShieldRecipe extends Recipe {
         inv.decrStackSize(3,1);
         inv.decrStackSize(5,1);
         inv.decrStackSize(7,1);
-        return new ItemStack(ItemRegister.IRON_SHIELD);
+        return new ItemStack(ItemRegister.GOLD_SHIELD);
     }
 
 }
