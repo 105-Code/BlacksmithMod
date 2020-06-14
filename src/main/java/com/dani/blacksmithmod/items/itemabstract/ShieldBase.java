@@ -4,7 +4,7 @@ import com.dani.blacksmithmod.BlacksmithMod;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShieldItem;
 
-public class ShieldBase extends ShieldItem {
+public abstract class ShieldBase extends ShieldItem {
 
     protected int maxDamge;
     public ShieldBase(String name, int damage, Item.Properties prop) {
