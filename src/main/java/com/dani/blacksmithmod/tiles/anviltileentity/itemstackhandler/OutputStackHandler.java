@@ -21,26 +21,11 @@ public class OutputStackHandler extends ItemStackHandler {
         return this.canInsertItem;
     }
 
-    public void outputItem(TypePattern pattern){
+    public boolean outputItem(ItemStack itemStack){
         this.canInsertItem = true;
-        switch (pattern){
-            case SADDLE:
-                this.setStackInSlot(0,new ItemStack(Items.SADDLE,1));
-                break;
-            case DIAMOND_SHIELD:
-                this.setStackInSlot(0,new ItemStack(ItemRegister.DIAMOND_SHIELD,1));
-                break;
-            case GOLD_SHIELD:
-                this.setStackInSlot(0,new ItemStack(ItemRegister.GOLD_SHIELD,1));
-                break;
-            case IRON_SHIELD:
-                this.setStackInSlot(0,new ItemStack(ItemRegister.IRON_SHIELD,1));
-                break;
-            case SHIELD:
-                this.setStackInSlot(0,new ItemStack(Items.SHIELD,1));
-                break;
-        }
+        this.setStackInSlot(0,itemStack);
         this.canInsertItem = false;
+        return true;
 
     }
 }

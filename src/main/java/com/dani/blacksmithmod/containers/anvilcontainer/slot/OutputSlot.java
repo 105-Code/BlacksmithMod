@@ -8,6 +8,7 @@ public class OutputSlot extends SlotItemHandler {
 
     public OutputSlot(final IItemHandler handler, final int index, final int xPos, final int yPos) {
         super(handler, index, xPos, yPos);
+        
     }
 
 }

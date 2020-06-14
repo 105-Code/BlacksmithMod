@@ -1,51 +1,60 @@
 package com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler;
 
-import com.dani.blacksmithmod.items.itemabstract.Pattern;
-import com.dani.blacksmithmod.tiles.anviltileentity.interfaces.VerifyItemsPattern;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class MaterialStackHandler extends ItemStackHandler {
+public class MaterialStackHandler extends ItemStackHandler  implements IInventory {
 
-    private VerifyItemsPattern inter;
 
-    public MaterialStackHandler(VerifyItemsPattern inter,int size){
+    public MaterialStackHandler(int size){
         super(size);
-       this.inter=inter;
     }
-
 
     @Override
-    public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-
-        return this.inter.itemInPattern(stack.getItem());
+    public int getSizeInventory() {
+        return this.stacks.size();
     }
 
-    public boolean isEqual(ItemStack[] materials){
-        int max = this.getSlots();
-        short equals = 0;
-        for(ItemStack stack:materials){
-            for(int i = 0; i< max; i++){
-                ItemStack stackInSlot = this.getStackInSlot(i);
-                if(stackInSlot.isItemEqual(stack)){
-                    if(stackInSlot.getCount() == stack.getCount())
-                        equals++;
-                }
-            }
-        }
-
-        return equals == materials.length;
+    @Override
+    public boolean isEmpty() {
+        return this.stacks.isEmpty();
     }
 
-    public void clear(){
-        for(int i = 0; i < this.getSlots();i++){
-            ItemStack stack= this.getStackInSlot(i);
-            this.setStackInSlot(i,new ItemStack(Items.AIR) );
-        }
+    @Override
+    public ItemStack decrStackSize(int index, int count) {
+        ItemStack stack = this.getStackInSlot(index);
+        if (stack.getCount() < count)
+            return stack;
+        stack.setCount(stack.getCount() - count);
+        return stack;
+    }
+
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        return this.stacks.remove(index);
+    }
+
+    @Override
+    public void setInventorySlotContents(int index, ItemStack stack) {
 
     }
 
+    @Override
+    public void markDirty() {
+
+    }
+
+    @Override
+    public boolean isUsableByPlayer(PlayerEntity player) {
+        return true;
+    }
+
+    @Override
+    public void clear() {
+
+    }
 }

@@ -18,15 +18,14 @@ public class ItemRegister {
 
 
     public static final Item HAMMER = new Hammer();
+
+
+
+
+    //Block Items
     public static final BlockItem ANVIL_BLOCK_ITEM =  new AnvilBlockItem(BlockRegister.ANVIL);
 
-    public static final Item SADDLE_PATTERN = new SaddlePattern();
 
-    //shield patterns
-    public static final Item SHIELD_PATTERN = new ShieldPattern();
-    public static final Item IRON_SHIELD_PATTERN =new IronShieldPattern();
-    public static final Item GOLD_SHIELD_PATTERN = new GoldShieldPattern();
-    public static final Item DIAMOND_SHIELD_PATTERN = new DiamondShieldPattern();
 
     //Shield Items
     private static final Item.Properties SHIELD_PROPERTIES = new Item.Properties().group(BlacksmithMod.TAB);
@@ -43,7 +42,6 @@ public class ItemRegister {
         reg.register(HAMMER);
         reg.register(ANVIL_BLOCK_ITEM);
         reg.registerAll(GOLD_SHIELD, IRON_SHIELD,DIAMOND_SHIELD);
-        reg.registerAll(SHIELD_PATTERN, IRON_SHIELD_PATTERN, GOLD_SHIELD_PATTERN, DIAMOND_SHIELD_PATTERN,SADDLE_PATTERN);
 
 
     }

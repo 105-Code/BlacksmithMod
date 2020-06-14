@@ -1,47 +1,42 @@
 package com.dani.blacksmithmod.tiles.anviltileentity;
 
 
-import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
+import com.dani.blacksmithmod.items.recipes.IronShieldRecipe;
 import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.MaterialStackHandler;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.OutputStackHandler;
-import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.PatternStackHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ICraftingRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.inventory.container.WorkbenchContainer;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraftforge.items.ItemStackHandler;
+
 import javax.annotation.Nullable;
 
 
 
 public class AnvilTileEntity extends TileEntity  implements  INamedContainerProvider {
 
-    public final PatternStackHandler pattern;
-    public final MaterialStackHandler ingredients;
+    public MaterialStackHandler materials;
+    private final IRecipe<CraftingInventory>[] recipes = new IRecipe[]{new IronShieldRecipe()};
     public final OutputStackHandler output;
     private short hit;
+
+    private Container container;
 
 
     public AnvilTileEntity() {
         super(TileEntityRegister.ANVIL_TILE_ENTITY);
-        this.pattern = new PatternStackHandler();
-        this.ingredients = new MaterialStackHandler(this.pattern,6);
+        this.materials= new MaterialStackHandler(9);
         this.output = new OutputStackHandler();
         this.hit=0;
     }
@@ -53,10 +48,10 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
             return true;
         }
         this.hit = 0;
-        if(this.ingredients.isEqual(this.pattern.getMaterialPattern())){
-            this.output.outputItem(this.pattern.getTypePattern());
-            this.ingredients.clear();
-            return true;
+        for(IRecipe recipe : this.recipes){
+            if (recipe.matches(this.materials,world)){
+                return this.output.outputItem(recipe.getCraftingResult(this.materials));
+            }
         }
         return false;
     }
@@ -70,7 +65,8 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
     @Nullable
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-        return new AnvilContainer(i, world, pos, playerInventory, playerEntity);
+        return this.container = new AnvilContainer(i, world, pos, playerInventory, playerEntity);
+
     }
 
     @Override

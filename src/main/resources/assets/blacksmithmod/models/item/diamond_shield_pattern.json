@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "blacksmithmod:items/diamond_shield_pattern"
-  }
-}

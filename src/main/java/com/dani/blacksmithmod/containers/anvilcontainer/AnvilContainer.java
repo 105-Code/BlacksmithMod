@@ -2,7 +2,6 @@ package com.dani.blacksmithmod.containers.anvilcontainer;
 
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.IngredientSlot;
 import com.dani.blacksmithmod.containers.anvilcontainer.slot.OutputSlot;
-import com.dani.blacksmithmod.containers.anvilcontainer.slot.PatternSlot;
 import com.dani.blacksmithmod.setup.BlockRegister;
 import com.dani.blacksmithmod.setup.ContainerRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
@@ -18,24 +17,21 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class AnvilContainer extends Container{
+public class AnvilContainer extends Container {
 
     private AnvilTileEntity tileEntity;
     private PlayerEntity playerEntity;
     private IItemHandler playerInventory;
 
-    private ItemStackHandler pattern;
     private ItemStackHandler ingredients;
     private ItemStackHandler output;
-    private String outputItemName;
 
     public AnvilContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(ContainerRegister.ANVIL_CONTAINER, windowId);
 
         tileEntity = (AnvilTileEntity) world.getTileEntity(pos);
 
-        this.pattern = tileEntity.pattern;
-        this.ingredients = tileEntity.ingredients;
+        this.ingredients = tileEntity.materials;
         this.output = tileEntity.output;
 
 
@@ -66,13 +62,12 @@ public class AnvilContainer extends Container{
      * Agrega los Slots de la interfaz
      */
     private void anvilSlots(){
-        this.addSlot((Slot)new PatternSlot((IItemHandler)this.pattern, 0, 92, 50));
-        this.addSlot((Slot)new OutputSlot((IItemHandler)this.output, 0, 144, 50));
+        this.addSlot(new OutputSlot(this.output, 0, 136, 33));
 
         int index = 0;
-        for (int row = 0; row < 2; ++row) {
+        for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                this.addSlot(new IngredientSlot((IItemHandler)this.ingredients, index, 9 + col  * 18, 40+ row * 18));
+                this.addSlot(new IngredientSlot(this.ingredients, index, 14 + col  * 18, 15+ row * 18));
                 ++index;
             }
         }

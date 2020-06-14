@@ -17,5 +17,6 @@ public class BlockRegister {
         final IForgeRegistry<Block> reg = ev.getRegistry();
 
         reg.register(ANVIL);
+
     }
 }
