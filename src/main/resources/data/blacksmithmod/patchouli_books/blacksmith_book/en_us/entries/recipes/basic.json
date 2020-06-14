@@ -1,0 +1,17 @@
+{
+  "name": "Getting started",
+  "icon": "blacksmithmod:hammer",
+  "category": "blacksmithmod:recipes",
+  "pages": [
+    {
+      "type": "crafting",
+      "text": "First, you need a Hammer, it will help craft a lot of things",
+      "recipe": "blacksmithmod:hammer"
+    },
+    {
+      "type": "crafting",
+      "text": "Besides of hammer you will need anvil, it's similar a conventional crafting table, but to make crafts, you will hit with the hammer",
+      "recipe": "blacksmithmod:anvil"
+    }
+  ]
+}

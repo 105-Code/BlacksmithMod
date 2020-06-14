@@ -11,15 +11,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
@@ -28,11 +25,12 @@ public class Anvil extends Block {
 
     public Anvil() {
         super(Block.Properties.create(Material.ANVIL)
-                .hardnessAndResistance(5.8f,6.0f)
+                .hardnessAndResistance(4.8f,5.0f)
                 .sound(SoundType.ANVIL)
-                .harvestLevel(2)
+                .harvestLevel(1)
                 .harvestTool(ToolType.PICKAXE));
         this.setRegistryName(BlacksmithMod.MODID,"anvil");
+
     }
 
     /**
@@ -74,11 +72,18 @@ public class Anvil extends Block {
     public void onBlockClicked(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
         if(!worldIn.isRemote()){
             if(player.inventory.getCurrentItem().getItem() instanceof Hammer){
+
                 TileEntity tileEntity = worldIn.getTileEntity(pos);
                 if(tileEntity instanceof AnvilTileEntity){
                     ((AnvilTileEntity) tileEntity).addHit();
                 }
             }
         }
+
+        if(player.inventory.getCurrentItem().getItem() instanceof Hammer && worldIn.isRemote()){
+            worldIn.playSound(player.getPosX(),player.getPosY(),player.getPosZ(),SoundType.ANVIL.getPlaceSound(), SoundCategory.BLOCKS,1.0f,1.0f,true);
+        }
+
+
     }
 }

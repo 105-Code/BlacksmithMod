@@ -1,0 +1,7 @@
+{
+  "name": "item.blacksmithmod.blacksmithbook",
+  "landing_text": "Welcome to Blacksmith documentation.",
+  "show_progress": false,
+  "creative_tab": "blacksmithmod",
+  "version": 1
+}

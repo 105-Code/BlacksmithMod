@@ -1,7 +1,7 @@
-package com.dani.blacksmithmod.containers.anvilcontainer;
+package com.dani.blacksmithmod.containers.anvil;
 
-import com.dani.blacksmithmod.containers.anvilcontainer.slot.IngredientSlot;
-import com.dani.blacksmithmod.containers.anvilcontainer.slot.OutputSlot;
+import com.dani.blacksmithmod.containers.anvil.slot.IngredientSlot;
+import com.dani.blacksmithmod.containers.anvil.slot.OutputSlot;
 import com.dani.blacksmithmod.setup.BlockRegister;
 import com.dani.blacksmithmod.setup.ContainerRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;

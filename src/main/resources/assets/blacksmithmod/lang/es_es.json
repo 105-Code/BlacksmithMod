@@ -1,13 +1,12 @@
 {
   "item.blacksmithmod.hammer":"Martillo",
   "itemGroup.blacksmithmod": "Blacksmith Mod",
+
   "block.blacksmithmod.anvil":"Yunque",
+
   "item.blacksmithmod.iron_shield":"Escudo de Hierro",
   "item.blacksmithmod.gold_shield":"Escudo de Oro",
   "item.blacksmithmod.diamond_shield":"Escudo de Diamante",
-  "item.blacksmithmod.saddle_pattern": "Patron de Silla de Montar",
-  "item.blacksmithmod.shield_pattern": "Patron de Escudo",
-  "item.blacksmithmod.iron_shield_pattern": "Patron de Escudo de Hierro",
-  "item.blacksmithmod.gold_shield_pattern": "Patron de Escudo de Oro",
-  "item.blacksmithmod.diamond_shield_pattern": "Patron de Escudo de Diamante"
+
+  "item.blacksmithmod.blacksmithbook": "Libro del Herrero",
 }

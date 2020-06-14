@@ -1,26 +1,24 @@
 package com.dani.blacksmithmod.tiles.anviltileentity;
 
 
-import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
+import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
 import com.dani.blacksmithmod.items.recipes.DiamondShieldRecipe;
 import com.dani.blacksmithmod.items.recipes.GoldShieldRecipe;
 import com.dani.blacksmithmod.items.recipes.IronShieldRecipe;
+import com.dani.blacksmithmod.items.recipes.SaddleRecipe;
 import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.MaterialStackHandler;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.OutputStackHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 
@@ -32,7 +30,8 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
     private final IRecipe<CraftingInventory>[] recipes = new IRecipe[]{
             new IronShieldRecipe(),
             new GoldShieldRecipe(),
-            new DiamondShieldRecipe()
+            new DiamondShieldRecipe(),
+            new SaddleRecipe()
     };
     public final OutputStackHandler output;
     private short hit;

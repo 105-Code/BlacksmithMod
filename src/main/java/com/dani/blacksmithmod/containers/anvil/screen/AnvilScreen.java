@@ -1,9 +1,8 @@
-package com.dani.blacksmithmod.containers.anvilcontainer.screen;
+package com.dani.blacksmithmod.containers.anvil.screen;
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
+import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -11,7 +10,7 @@ import net.minecraft.util.text.ITextComponent;
 
 public class AnvilScreen extends ContainerScreen<AnvilContainer> {
 
-    private static final ResourceLocation GUI_BACKGROUND = new ResourceLocation(BlacksmithMod.MODID, "textures/gui/anvil_gui.png");;
+    private static final ResourceLocation GUI_BACKGROUND = new ResourceLocation(BlacksmithMod.MODID, "textures/gui/anvil_gui.png");
 
     public AnvilScreen(AnvilContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);

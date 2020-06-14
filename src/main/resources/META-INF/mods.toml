@@ -18,22 +18,17 @@ displayURL="https://github.com/dani0105/BlacksmithMod" #optional
 
 logoFile="blacksmithmod.png"
 
-authors="dani0105" #optional
+authors=["dani0105","SantiTroll10"] #optional
 
 description='''
     Este Mod agrega un nuevo sistema de herrería al juego.
 '''
 
 [[dependencies.blacksmithmod]] #optional
-
-    modId="forge" #mandatory
-
-    mandatory=true #mandatory
-
-    versionRange="[31,)" #mandatory
-
+    modId="forge"
+    mandatory=true
+    versionRange="[31,)"
     ordering="NONE"
-
     side="BOTH"
 
 [[dependencies.blacksmithmod]]
@@ -41,4 +36,10 @@ description='''
     mandatory=true
     versionRange="[1.15.2]"
     ordering="NONE"
+    side="BOTH"
+
+[[dependencies.blacksmithmod]]
+    modId="patchouli"
+    mandatory=true
+    versionRange="[1.15.2-1.2-32,)"
     side="BOTH"

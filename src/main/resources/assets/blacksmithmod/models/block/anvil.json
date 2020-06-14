@@ -1,16 +1,16 @@
 {
   "parent": "minecraft:block/block",
-  "display": {
-    "firstperson_righthand": {
-      "rotation": [ 0, 0, 0 ],
-      "translation": [ 0, 0, 0 ],
-      "scale": [ 0.5, 0.5, 0.5 ]
-    }
-  },
   "textures": {
     "particle": "minecraft:block/anvil",
     "body": "minecraft:block/anvil",
-    "top": "minecraft:block/lectern_top"
+    "top": "minecraft:block/anvil_top"
+  },
+  "display": {
+    "fixed": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    }
   },
   "elements": [
     {   "__comment": "Anvil base",

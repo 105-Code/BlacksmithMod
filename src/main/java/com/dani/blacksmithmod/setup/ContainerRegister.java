@@ -2,16 +2,12 @@ package com.dani.blacksmithmod.setup;
 
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import com.dani.blacksmithmod.containers.anvilcontainer.AnvilContainer;
-import net.minecraft.block.Block;
-import net.minecraft.inventory.container.Container;
+import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
