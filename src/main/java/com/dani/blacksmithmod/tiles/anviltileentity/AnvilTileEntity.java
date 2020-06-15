@@ -2,10 +2,7 @@ package com.dani.blacksmithmod.tiles.anviltileentity;
 
 
 import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
-import com.dani.blacksmithmod.items.recipes.DiamondShieldRecipe;
-import com.dani.blacksmithmod.items.recipes.GoldShieldRecipe;
-import com.dani.blacksmithmod.items.recipes.IronShieldRecipe;
-import com.dani.blacksmithmod.items.recipes.SaddleRecipe;
+import com.dani.blacksmithmod.items.recipes.*;
 import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.MaterialStackHandler;
 import com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler.OutputStackHandler;
@@ -31,7 +28,10 @@ public class AnvilTileEntity extends TileEntity  implements  INamedContainerProv
             new IronShieldRecipe(),
             new GoldShieldRecipe(),
             new DiamondShieldRecipe(),
-            new SaddleRecipe()
+            new SaddleRecipe(),
+            new DiamondHorseArmorRecipe(),
+            new IronHorseArmorRecipe(),
+            new GoldHorseArmorRecipe()
     };
     public final OutputStackHandler output;
     private short hit;

@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -43,6 +44,37 @@ public class AnvilContainer extends Container {
 
     }
 
+    @Override
+    public ItemStack transferStackInSlot(PlayerEntity playerIn, int fromSlot) {
+        ItemStack previous = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(fromSlot);
+
+        if (slot != null && slot.getHasStack()) {
+            ItemStack current = slot.getStack();
+            previous = current.copy();
+
+            if (fromSlot < this.inventorySlots.size()) {
+                // From the block breaker inventory to player's inventory
+                if (!this.mergeItemStack(current, 0,  36, true))
+                    return ItemStack.EMPTY;
+            } else {
+                // From the player's inventory to block breaker's inventory
+                if (!this.mergeItemStack(current, 0, 9, false))
+                    return ItemStack.EMPTY;
+            }
+
+            if (current.getCount() == 0) //Use func_190916_E() instead of stackSize 1.11 only 1.11.2 use getCount()
+                slot.putStack(ItemStack.EMPTY); //Use ItemStack.field_190927_a instead of (ItemStack)null for a blank item stack. In 1.11.2 use ItemStack.EMPTY
+            else
+                slot.onSlotChanged();
+
+            if (current.getCount() == previous.getCount())
+                return null;
+            slot.onTake(playerIn, current);
+        }
+        return previous;
+    }
+
     /**
      * Agrega los Slots del Inventario en la vista
      * @param playerInventory Jugador que abrio la GUI
@@ -50,11 +82,11 @@ public class AnvilContainer extends Container {
     private void addPlayerSlots(final PlayerInventory playerInventory) {
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
-                this.addSlot(new Slot((IInventory)playerInventory, col + row * 9 + 9, 8 + col * 18, 79 + row * 18));
+                this.addSlot(new Slot(playerInventory, col + row * 9 + 9, 8 + col * 18, 79 + row * 18));
             }
         }
         for (int hotbar = 0; hotbar < 9; ++hotbar) {
-            this.addSlot(new Slot((IInventory)playerInventory, hotbar, 8 + hotbar * 18, 137));
+            this.addSlot(new Slot(playerInventory, hotbar, 8 + hotbar * 18, 137));
         }
     }
 
@@ -67,7 +99,7 @@ public class AnvilContainer extends Container {
         int index = 0;
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                this.addSlot(new IngredientSlot(this.ingredients, index, 14 + col  * 18, 15+ row * 18));
+                this.addSlot(new IngredientSlot(this.ingredients, index, 15 + col  * 18, 16+ row * 18));
                 ++index;
             }
         }

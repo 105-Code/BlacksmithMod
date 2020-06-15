@@ -4,19 +4,23 @@
   "category" : "blacksmithmod:recipes",
   "pages" : [
     {
-      "type" : "crafting" ,
-      "text" : "blacksmithmod.page.shields1",
-      "recipe" : "blacksmithmod:shield"
+      "type" : "text" ,
+      "text": "blacksmithmod.page.shields1"
     },
     {
-      "type" : "crafting" ,
-      "text" : "blacksmithmod.page.shields2",
-      "recipe" : "blacksmithmod:hammer"
+      "type" : "image" ,
+      "title" : "blacksmithmod.title.iron_shield",
+      "images": ["blacksmithmod:textures/gui/book_image/iron_shield_recipe.png"]
     },
     {
-      "type" : "crafting" ,
-      "text" : "blacksmithmod.page.shields3",
-      "recipe" : "blacksmithmod:anvil"
+      "type" : "image" ,
+      "title" : "blacksmithmod.title.gold_shield",
+      "images": ["blacksmithmod:textures/gui/book_image/gold_shield_recipe.png"]
+    },
+    {
+      "type" : "image" ,
+      "title" : "blacksmithmod.title.diamond_shield",
+      "images": ["blacksmithmod:textures/gui/book_image/diamond_shield_recipe.png"]
     }
   ]
 

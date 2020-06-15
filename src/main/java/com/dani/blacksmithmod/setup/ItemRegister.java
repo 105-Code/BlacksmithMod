@@ -3,12 +3,10 @@ package com.dani.blacksmithmod.setup;
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.*;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemTier;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -25,8 +23,6 @@ public class ItemRegister {
     //Block Items
     public static final BlockItem ANVIL_BLOCK_ITEM =  new AnvilBlockItem(BlockRegister.ANVIL);
 
-
-
     //Shield Items
     private static final Item.Properties SHIELD_PROPERTIES = new Item.Properties().group(BlacksmithMod.TAB);
     public static final ShieldBasic GOLD_SHIELD = new ShieldBasic("gold_shield", ItemTier.GOLD,192, SHIELD_PROPERTIES);
@@ -42,7 +38,6 @@ public class ItemRegister {
         reg.register(HAMMER);
         reg.register(ANVIL_BLOCK_ITEM);
         reg.registerAll(GOLD_SHIELD, IRON_SHIELD,DIAMOND_SHIELD);
-
 
     }
 }

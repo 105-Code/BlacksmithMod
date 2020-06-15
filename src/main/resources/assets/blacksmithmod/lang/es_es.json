@@ -19,29 +19,18 @@
   "blacksmithmod.page.basic3": "Este nuevo yunque tiene similitudes a una mesa de trabajo convencional, con la diferencia de que solo ciertos objetos es pueden hacer en ella y para hacerlos se necesita del martillo.",
   "blacksmithmod.page.basic4": " Una vez tengas el martillo y el yunque podrás crear fabulosos objetos, solo tendras que conseguir los materiales, colocarlso en el yuque y dar 5 golpes a tu yunque con el martillo.",
 
-  "blacksmithmod.entry.shields": "Patrones de Escudos,",
-  "blacksmithmod.page.shields1": "Sencillo y efectivo,",
-  "blacksmithmod.page.shields2": "Lujoso y brillante,",
-  "blacksmithmod.page.shields3": "Inpenetrable.",
-
-  "blacksmithmod.entry.armor": "Patrones de Armaduras",
-  "blacksmithmod.page.armor1": "Comming soon",
-  "blacksmithmod.page.armor2": "Comming soon",
-  "blacksmithmod.page.armor3": "Comming soon",
-
-  "blacksmithmod.entry.horse_equipment": "Equipamento para Caballos",
-  "blacksmithmod.page.horse_equipment1": "Otro gran beneficio de la herrería es la creacion de equipo para caballos, colocando los materiales requeridos en el yunque podrás hacer todos estos objetos.",
-  "blacksmithmod.page.horse_equipment2": "Gracias a la magia de la herrería, podrás crear una silla de montar a tu caballo",
-  "blacksmithmod.page.horse_equipment3": "Necesitaras un poco de protección, esta armadura de hierro te servirá",
-  "blacksmithmod.page.horse_equipment4": "Quieres que tu caballo se vea genial?, la armadura de oro se verá bien",
-  "blacksmithmod.page.horse_equipment5": "Amas mucho a tu caballo?, esta armadura lo volverá casi inmortal",
+  "blacksmithmod.entry.shields": "Armaduras",
+  "blacksmithmod.page.shields1": "Tus dotes de herrería te permiten crear nuevos objetos con cuales protegerte.",
+  "blacksmithmod.title.iron_shield":"Escudo de hierro",
+  "blacksmithmod.title.gold_shield":"Escudo de oro",
+  "blacksmithmod.title.diamond_shield":"Escudo de diamante",
 
 
-  "blacksmithmod.category.forge": "La Forja",
+  "blacksmithmod.entry.horse_equipment": "Caballos",
+  "blacksmithmod.page.horse_equipment1": "Otro gran beneficio de la herrería es la creacion de equipo para caballos, colocando los materiales requeridos en el yunque podrás hacer todos estos objetos. \n\nRecuerda dar los 5 golpes al yunque.",
+  "blacksmithmod.title.iron_horse_armor": "Armadura de hierro para caballo",
+  "blacksmithmod.title.gold_horse_armor": "Armadura de oro para caballo",
+  "blacksmithmod.title.diamond_horse_armor": "Armadura de diamante para caballo",
 
-  "blacksmithmod.entry.forge": "Un poco de calor",
-  "blacksmithmod.page.forge1": "Hablada...",
-  "blacksmithmod.page.forge2": "Hablada...",
-  "blacksmithmod.page.forge23": "Hablada..."
-
+  "blacksmithmod.category.forge": "La Forja"
 }

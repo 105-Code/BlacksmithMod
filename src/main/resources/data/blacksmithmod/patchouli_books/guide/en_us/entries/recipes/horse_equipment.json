@@ -1,0 +1,27 @@
+{
+  "name" : "blacksmithmod.entry.horse_equipment" ,
+  "icon" : " minecraft:horse_equipment" ,
+  "category" : "blacksmithmod:recipes",
+  "pages" : [
+    {
+      "type" : "text" ,
+      "text" : "blacksmithmod.page.horse_equipment1"
+    },
+    {
+      "type" : "image",
+      "title": "blacksmithmod.title.iron_horse_armor",
+      "images": ["blacksmithmod:textures/gui/book_image/iron_horse_armor_recipe.png"]
+    },
+    {
+      "type" : "image",
+      "title" : "blacksmithmod.title.gold_horse_armor",
+      "images": ["blacksmithmod:textures/gui/book_image/gold_horse_armor_recipe.png"]
+    },
+    {
+      "type" : "image",
+      "title" : "blacksmithmod.title.diamond_horse_armor",
+      "images": ["blacksmithmod:textures/gui/book_image/diamond_horse_armor_recipe.png"]
+    }
+  ]
+
+}

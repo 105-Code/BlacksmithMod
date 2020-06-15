@@ -21,7 +21,7 @@ logoFile="blacksmithmod.png"
 authors=["dani0105","SantiTroll10"] #optional
 
 description='''
-    Este Mod agrega un nuevo sistema de herrería al juego.
+    Este mod se encuentra en desarollo, pero es jugable. Agrega un nuevo sistema de herrería.
 '''
 
 [[dependencies.blacksmithmod]] #optional

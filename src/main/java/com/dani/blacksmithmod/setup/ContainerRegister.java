@@ -3,7 +3,9 @@ package com.dani.blacksmithmod.setup;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
+import com.dani.blacksmithmod.containers.anvilcrafting.AnvilCrafting;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
@@ -26,7 +28,5 @@ public class ContainerRegister {
         final IForgeRegistry<ContainerType<?>> reg = ev.getRegistry();
         ANVIL_CONTAINER.setRegistryName("anvil");
         reg.register(ANVIL_CONTAINER);
-
-
     }
 }

@@ -4,5 +4,7 @@
   "show_progress": false,
   "creative_tab": "blacksmithmod",
   "version": 1,
-  "i18n": true
+  "i18n": true,
+  "model": "blacksmithmod:item/guide",
+  "index_icon": "blacksmithmod:item/guide"
 }

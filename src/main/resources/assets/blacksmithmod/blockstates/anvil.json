@@ -1,5 +1,5 @@
 {
   "variants": {
-    "all": { "model": "blacksmithmod:block/anvil" }
+    "": { "model": "blacksmithmod:block/anvil" }
   }
 }
