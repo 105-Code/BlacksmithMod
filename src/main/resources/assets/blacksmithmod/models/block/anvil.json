@@ -1,7 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
-        "particles": "blacksmithmod:blocks/anvil",
+        "particle": "minecraft:block/anvil",
         "top": "blacksmithmod:blocks/anvil_top",
         "anvil": "blacksmithmod:blocks/anvil"
     },

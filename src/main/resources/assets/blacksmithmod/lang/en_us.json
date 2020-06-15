@@ -8,13 +8,29 @@
   "item.blacksmithmod.gold_shield":"Gold Shield",
   "item.blacksmithmod.diamond_shield":"Diamond Shield",
 
-  "item.blacksmithmod.guide": "Blacksmith's Book",
-  "item.landing": "Guia",
+  "item.blacksmithmod.guide": "Blacksmith's Guide",
+  "item.landing": "coming soon",
 
-  "blacksmithmod.category.recipes": "Recetas",
+  "blacksmithmod.category.recipes": "coming soon",
 
-  "blacksmithmod.entry.basic": "Iniciando en la herrería",
-  "blacksmithmod.page.basic1": "Hablada...",
-  "blacksmithmod.page.basic2": "Hablada...",
-  "blacksmithmod.page.basic3": "Hablada..."
+  "blacksmithmod.entry.basic": "Recipes",
+  "blacksmithmod.page.basic1": "coming soon",
+  "blacksmithmod.page.basic2": "coming soon",
+  "blacksmithmod.page.basic3": "coming soon",
+  "blacksmithmod.page.basic4": "coming soon",
+
+  "blacksmithmod.entry.shields": "Armors",
+  "blacksmithmod.page.shields1": "coming soon",
+  "blacksmithmod.title.iron_shield":"coming soon",
+  "blacksmithmod.title.gold_shield":"coming soon",
+  "blacksmithmod.title.diamond_shield":"coming soon",
+
+
+  "blacksmithmod.entry.horse_equipment": "Caballos",
+  "blacksmithmod.page.horse_equipment1": "coming soon",
+  "blacksmithmod.title.iron_horse_armor": "coming soon",
+  "blacksmithmod.title.gold_horse_armor": "coming soon",
+  "blacksmithmod.title.diamond_horse_armor": "coming soon",
+
+  "blacksmithmod.category.forge": "The Forge"
 }
