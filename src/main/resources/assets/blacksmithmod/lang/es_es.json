@@ -8,5 +8,40 @@
   "item.blacksmithmod.gold_shield":"Escudo de Oro",
   "item.blacksmithmod.diamond_shield":"Escudo de Diamante",
 
-  "item.blacksmithmod.blacksmithbook": "Libro del Herrero",
+  "item.blacksmithmod.guide": "Libro del Herrero",
+  "item.landing": "Guia",
+
+  "blacksmithmod.category.recipes": "Recetas",
+
+  "blacksmithmod.entry.basic": "Iniciando en la Herrería",
+  "blacksmithmod.page.basic1": "Para convertirse en un herrero necesitaras de varias cosas, pero para empezar bastara con un yunque y un martillo.",
+  "blacksmithmod.page.basic2": "El martillo te ayudará en los crafteos en el yunque, sin el no podras hacer nada en el yunque.",
+  "blacksmithmod.page.basic3": "Este nuevo yunque tiene similitudes a una mesa de trabajo convencional, con la diferencia de que solo ciertos objetos es pueden hacer en ella y para hacerlos se necesita del martillo.",
+  "blacksmithmod.page.basic4": " Una vez tengas el martillo y el yunque podrás crear fabulosos objetos, solo tendras que conseguir los materiales, colocarlso en el yuque y dar 5 golpes a tu yunque con el martillo.",
+
+  "blacksmithmod.entry.shields": "Patrones de Escudos,",
+  "blacksmithmod.page.shields1": "Sencillo y efectivo,",
+  "blacksmithmod.page.shields2": "Lujoso y brillante,",
+  "blacksmithmod.page.shields3": "Inpenetrable.",
+
+  "blacksmithmod.entry.armor": "Patrones de Armaduras",
+  "blacksmithmod.page.armor1": "Comming soon",
+  "blacksmithmod.page.armor2": "Comming soon",
+  "blacksmithmod.page.armor3": "Comming soon",
+
+  "blacksmithmod.entry.horse_equipment": "Equipamento para Caballos",
+  "blacksmithmod.page.horse_equipment1": "Otro gran beneficio de la herrería es la creacion de equipo para caballos, colocando los materiales requeridos en el yunque podrás hacer todos estos objetos.",
+  "blacksmithmod.page.horse_equipment2": "Gracias a la magia de la herrería, podrás crear una silla de montar a tu caballo",
+  "blacksmithmod.page.horse_equipment3": "Necesitaras un poco de protección, esta armadura de hierro te servirá",
+  "blacksmithmod.page.horse_equipment4": "Quieres que tu caballo se vea genial?, la armadura de oro se verá bien",
+  "blacksmithmod.page.horse_equipment5": "Amas mucho a tu caballo?, esta armadura lo volverá casi inmortal",
+
+
+  "blacksmithmod.category.forge": "La Forja",
+
+  "blacksmithmod.entry.forge": "Un poco de calor",
+  "blacksmithmod.page.forge1": "Hablada...",
+  "blacksmithmod.page.forge2": "Hablada...",
+  "blacksmithmod.page.forge23": "Hablada..."
+
 }

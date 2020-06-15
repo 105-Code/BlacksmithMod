@@ -8,5 +8,13 @@
   "item.blacksmithmod.gold_shield":"Gold Shield",
   "item.blacksmithmod.diamond_shield":"Diamond Shield",
 
-  "item.blacksmithmod.blacksmithbook": "Blacksmith's Book",
+  "item.blacksmithmod.guide": "Blacksmith's Book",
+  "item.landing": "Guia",
+
+  "blacksmithmod.category.recipes": "Recetas",
+
+  "blacksmithmod.entry.basic": "Iniciando en la herrería",
+  "blacksmithmod.page.basic1": "Hablada...",
+  "blacksmithmod.page.basic2": "Hablada...",
+  "blacksmithmod.page.basic3": "Hablada..."
 }

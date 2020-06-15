@@ -1,0 +1,23 @@
+{
+  "name" : "blacksmithmod.entry.shields" ,
+  "icon" : " minecraft:shield" ,
+  "category" : "blacksmithmod:recipes",
+  "pages" : [
+    {
+      "type" : "crafting" ,
+      "text" : "blacksmithmod.page.shields1",
+      "recipe" : "blacksmithmod:shield"
+    },
+    {
+      "type" : "crafting" ,
+      "text" : "blacksmithmod.page.shields2",
+      "recipe" : "blacksmithmod:hammer"
+    },
+    {
+      "type" : "crafting" ,
+      "text" : "blacksmithmod.page.shields3",
+      "recipe" : "blacksmithmod:anvil"
+    }
+  ]
+
+}

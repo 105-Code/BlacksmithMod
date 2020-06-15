@@ -5,6 +5,7 @@ import com.dani.blacksmithmod.util.ClientProxy;
 import com.dani.blacksmithmod.util.ClientSetup;
 import com.dani.blacksmithmod.util.IProxy;
 import com.dani.blacksmithmod.util.ServerProxy;
+import net.minecraft.client.gui.recipebook.RecipeList;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

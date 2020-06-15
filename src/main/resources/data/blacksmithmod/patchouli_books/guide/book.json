@@ -1,0 +1,8 @@
+{
+  "name": "item.blacksmithmod.guide",
+  "landing_text": "item.landing",
+  "show_progress": false,
+  "creative_tab": "blacksmithmod",
+  "version": 1,
+  "i18n": true
+}
