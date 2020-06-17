@@ -22,23 +22,13 @@ public class AnvilContainer extends Container {
 
     private AnvilTileEntity tileEntity;
     private PlayerEntity playerEntity;
-    private IItemHandler playerInventory;
-
     private ItemStackHandler ingredients;
-    private ItemStackHandler output;
 
     public AnvilContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(ContainerRegister.ANVIL_CONTAINER, windowId);
-
         tileEntity = (AnvilTileEntity) world.getTileEntity(pos);
-
-        this.ingredients = tileEntity.materials;
-        this.output = tileEntity.output;
-
-
+        this.ingredients = tileEntity.getMaterials();
         this.playerEntity = player;
-        this.playerInventory = new InvWrapper(playerInventory);
-
         this.addPlayerSlots(playerInventory);
         this.anvilSlots();
 
@@ -94,8 +84,6 @@ public class AnvilContainer extends Container {
      * Agrega los Slots de la interfaz
      */
     private void anvilSlots(){
-        this.addSlot(new OutputSlot(this.output, 0, 136, 33));
-
         int index = 0;
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {

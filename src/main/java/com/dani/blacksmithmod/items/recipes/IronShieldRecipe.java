@@ -6,6 +6,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.world.World;
+import net.minecraftforge.items.ItemStackHandler;
 
 public class IronShieldRecipe extends Recipe {
 
@@ -17,14 +19,12 @@ public class IronShieldRecipe extends Recipe {
                 Items.AIR,Items.IRON_INGOT,Items.AIR
         });
     }
-
     @Override
-    public ItemStack getCraftingResult(IInventory inv) {
-        inv.decrStackSize(1,1);
-        inv.decrStackSize(3,1);
-        inv.decrStackSize(5,1);
-        inv.decrStackSize(7,1);
-        return new ItemStack(ItemRegister.IRON_SHIELD);
+    public ItemStack getCraftingResult(ItemStackHandler inv) {
+        inv.extractItem(1,1,false);
+        inv.extractItem(3,1,false);
+        inv.extractItem(5,1,false);
+        inv.extractItem(7,1,false);
+        return new ItemStack(ItemRegister.IRON_SHIELD,1);
     }
-
 }

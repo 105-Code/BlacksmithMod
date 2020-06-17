@@ -13,15 +13,13 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TileEntityRegister {
 
-    public static final TileEntityType ANVIL_TILE_ENTITY = TileEntityType.Builder.create(AnvilTileEntity::new, BlockRegister.ANVIL).build(null);
+    public static final TileEntityType<?> ANVIL_TILE_ENTITY = TileEntityType.Builder.create(AnvilTileEntity::new, BlockRegister.ANVIL).build(null).setRegistryName("anvil");
 
 
     @SubscribeEvent
     public static void onRegister(final RegistryEvent.Register<TileEntityType<?>> ev) {
         final IForgeRegistry<TileEntityType<?>> reg = ev.getRegistry();
-        ANVIL_TILE_ENTITY.setRegistryName("anvil");
+
         reg.register(ANVIL_TILE_ENTITY);
-
-
     }
 }

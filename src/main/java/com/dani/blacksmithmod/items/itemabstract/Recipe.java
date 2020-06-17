@@ -8,47 +8,30 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.items.ItemStackHandler;
 
-public abstract class Recipe implements IRecipe {
+public abstract class Recipe{
     protected final Item[] recipe;
 
     public Recipe(Item[] recipe){
         this.recipe = recipe;
     }
 
-    @Override
-    public boolean matches(IInventory inv, World worldIn) {
-        for(int i = 0;i < inv.getSizeInventory();i++)
-            if(inv.getStackInSlot(i).getItem() != recipe[i])
+
+    public boolean matches(ItemStackHandler handler, World worldIn) {
+        System.out.println("hello matches!!");
+        for(int i = 0;i < handler.getSlots();i++)
+            if(handler.getStackInSlot(i).getItem() != recipe[i])
                 return false;
         return true;
     }
 
-    @Override
-    public abstract ItemStack getCraftingResult(IInventory inv);
-
-    @Override
-    public boolean canFit(int width, int height) {
-        return false;
+    public ItemStack decrStackSize(ItemStack stack,int count){
+        if(stack.getCount() < count)
+            return stack;
+        stack.setCount(stack.getCount()-count);
+        return stack;
     }
 
-    @Override
-    public ItemStack getRecipeOutput() {
-        return null;
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return null;
-    }
-
-    @Override
-    public IRecipeSerializer<?> getSerializer() {
-        return null;
-    }
-
-    @Override
-    public IRecipeType<?> getType() {
-        return null;
-    }
+    public abstract ItemStack getCraftingResult(ItemStackHandler inv);
 }

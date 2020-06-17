@@ -1,11 +1,9 @@
-package com.dani.blacksmithmod.tiles.anviltileentity.itemstackhandler;
+package com.dani.blacksmithmod.tiles.anviltileentity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
-
-import javax.annotation.Nonnull;
 
 public class MaterialStackHandler extends ItemStackHandler  implements IInventory {
 
@@ -48,6 +46,7 @@ public class MaterialStackHandler extends ItemStackHandler  implements IInventor
 
     }
 
+
     @Override
     public boolean isUsableByPlayer(PlayerEntity player) {
         return true;
@@ -55,6 +54,12 @@ public class MaterialStackHandler extends ItemStackHandler  implements IInventor
 
     @Override
     public void clear() {
+
+    }
+
+    @Override
+    protected void onContentsChanged(int slot) {
+        System.out.println("Cambio la matriz");
 
     }
 }
