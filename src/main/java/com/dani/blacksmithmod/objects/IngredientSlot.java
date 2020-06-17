@@ -1,4 +1,4 @@
-package com.dani.blacksmithmod.containers.anvil.slot;
+package com.dani.blacksmithmod.objects;
 
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;

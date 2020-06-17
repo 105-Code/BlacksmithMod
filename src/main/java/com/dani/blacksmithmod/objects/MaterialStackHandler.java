@@ -1,4 +1,4 @@
-package com.dani.blacksmithmod.tiles.anviltileentity;
+package com.dani.blacksmithmod.objects;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;

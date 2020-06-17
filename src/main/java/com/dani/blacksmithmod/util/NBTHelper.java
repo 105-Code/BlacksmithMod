@@ -1,11 +1,10 @@
 package com.dani.blacksmithmod.util;
 
-import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
+import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;

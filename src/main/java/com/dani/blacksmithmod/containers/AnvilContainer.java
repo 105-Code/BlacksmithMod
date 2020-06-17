@@ -1,22 +1,18 @@
-package com.dani.blacksmithmod.containers.anvil;
+package com.dani.blacksmithmod.containers;
 
-import com.dani.blacksmithmod.containers.anvil.slot.IngredientSlot;
-import com.dani.blacksmithmod.containers.anvil.slot.OutputSlot;
+import com.dani.blacksmithmod.objects.IngredientSlot;
 import com.dani.blacksmithmod.setup.BlockRegister;
 import com.dani.blacksmithmod.setup.ContainerRegister;
-import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
+import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class AnvilContainer extends Container {
 
@@ -87,7 +83,7 @@ public class AnvilContainer extends Container {
         int index = 0;
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                this.addSlot(new IngredientSlot(this.ingredients, index, 15 + col  * 18, 16+ row * 18));
+                this.addSlot(new IngredientSlot(this.ingredients, index, 62 + col  * 18, 14 + row * 18));
                 ++index;
             }
         }

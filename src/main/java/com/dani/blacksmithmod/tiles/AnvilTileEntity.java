@@ -1,22 +1,15 @@
-package com.dani.blacksmithmod.tiles.anviltileentity;
+package com.dani.blacksmithmod.tiles;
 
-import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
+import com.dani.blacksmithmod.containers.AnvilContainer;
 import com.dani.blacksmithmod.items.itemabstract.Recipe;
 import com.dani.blacksmithmod.items.recipes.*;
 import com.dani.blacksmithmod.setup.TileEntityRegister;
 import com.dani.blacksmithmod.util.NBTHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DropperBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;

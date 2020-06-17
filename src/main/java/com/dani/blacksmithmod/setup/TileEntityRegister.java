@@ -1,12 +1,9 @@
 package com.dani.blacksmithmod.setup;
 
-import com.dani.blacksmithmod.tiles.anviltileentity.AnvilTileEntity;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
+import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
