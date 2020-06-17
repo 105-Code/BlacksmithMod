@@ -1,7 +1,6 @@
 package com.dani.blacksmithmod.items;
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import net.minecraft.item.Item;
 import net.minecraft.item.ShieldItem;
 
 public class ShieldBase extends ShieldItem {

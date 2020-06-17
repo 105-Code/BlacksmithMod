@@ -4,8 +4,6 @@ import com.dani.blacksmithmod.items.ShieldBase;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +11,10 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ShieldEvent {
 
+    /**
+     * listening for attackEvent over player. is used to insert damage in blacksmith's shields.
+     * @param ev entity who take damage.
+     */
     @SubscribeEvent
     public static void attackEvent(LivingAttackEvent ev) {
         if (ev.getEntityLiving() instanceof PlayerEntity) {

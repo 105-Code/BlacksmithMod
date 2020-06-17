@@ -16,17 +16,17 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Mod("blacksmithmod")
 public class BlacksmithMod {
+
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "blacksmithmod";
 
-    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+    public static IProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
-
+    /**
+     * Create mod tap in creative mode.
+     */
     public static final ItemGroup TAB = new ItemGroup(MODID){
         @Override
         public ItemStack createIcon() {
@@ -34,20 +34,16 @@ public class BlacksmithMod {
         }
     };
 
-
     public BlacksmithMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
-
-    }
+    private void setup(final FMLCommonSetupEvent event) {}
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         ClientSetup.init(event);
     }
-
 
 }

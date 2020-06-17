@@ -27,9 +27,14 @@ public class AnvilContainer extends Container {
         this.playerEntity = player;
         this.addPlayerSlots(playerInventory);
         this.anvilSlots();
-
     }
 
+    /**
+     *  when the player use shift + click to transfer items between Anvil Gui and Player Inventory
+     * @param playerIn player
+     * @param fromSlot slot where execute de comand shift + click
+     * @return item stack empty to clean slot or the stack what did player want to move.
+     */
     @Override
     public ItemStack transferStackInSlot(PlayerEntity playerIn, int fromSlot) {
         ItemStack previous = ItemStack.EMPTY;
@@ -62,22 +67,20 @@ public class AnvilContainer extends Container {
     }
 
     /**
-     * Agrega los Slots del Inventario en la vista
-     * @param playerInventory Jugador que abrio la GUI
+     * add inventory slot  and hotbar slot in screen.
+     * @param playerInventory player who open the gui.
      */
     private void addPlayerSlots(final PlayerInventory playerInventory) {
-        for (int row = 0; row < 3; ++row) {
-            for (int col = 0; col < 9; ++col) {
+        for(int col = 0; col < 9;col++ ){
+            this.addSlot(new Slot(playerInventory, col, 8 + col * 18, 137));
+            for(int row = 0; row < 3;row ++){
                 this.addSlot(new Slot(playerInventory, col + row * 9 + 9, 8 + col * 18, 79 + row * 18));
             }
-        }
-        for (int hotbar = 0; hotbar < 9; ++hotbar) {
-            this.addSlot(new Slot(playerInventory, hotbar, 8 + hotbar * 18, 137));
         }
     }
 
     /**
-     * Agrega los Slots de la interfaz
+     * add anvil slots in screen.
      */
     private void anvilSlots(){
         int index = 0;
@@ -90,6 +93,11 @@ public class AnvilContainer extends Container {
 
     }
 
+    /**
+     * specific if the entity could interact with the container.
+     * @param playerIn entity who interact.
+     * @return True if can interact or False if cannot.
+     */
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
         return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, BlockRegister.ANVIL);

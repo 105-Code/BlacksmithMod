@@ -12,11 +12,15 @@ public class TileEntityRegister {
 
     public static final TileEntityType<?> ANVIL_TILE_ENTITY = TileEntityType.Builder.create(AnvilTileEntity::new, BlockRegister.ANVIL).build(null).setRegistryName("anvil");
 
-
+    /**
+     * Add all blacksmith's items in game.
+     * @param ev event where the items will be registered
+     */
     @SubscribeEvent
     public static void onRegister(final RegistryEvent.Register<TileEntityType<?>> ev) {
         final IForgeRegistry<TileEntityType<?>> reg = ev.getRegistry();
 
         reg.register(ANVIL_TILE_ENTITY);
     }
+
 }
