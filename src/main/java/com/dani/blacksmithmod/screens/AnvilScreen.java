@@ -1,7 +1,7 @@
-package com.dani.blacksmithmod.containers.anvil.screen;
+package com.dani.blacksmithmod.screens;
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
+import com.dani.blacksmithmod.containers.AnvilContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;

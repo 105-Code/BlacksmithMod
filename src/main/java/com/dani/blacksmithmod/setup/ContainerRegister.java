@@ -2,10 +2,8 @@ package com.dani.blacksmithmod.setup;
 
 
 import com.dani.blacksmithmod.BlacksmithMod;
-import com.dani.blacksmithmod.containers.anvil.AnvilContainer;
-import com.dani.blacksmithmod.containers.anvilcrafting.AnvilCrafting;
+import com.dani.blacksmithmod.containers.AnvilContainer;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
