@@ -1,0 +1,17 @@
+{
+  "type": "blacksmithmod:anvil",
+  "pattern":[
+    " I ",
+    "I I",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "blacksmithmod:iron_shield",
+    "count": 1
+  }
+}

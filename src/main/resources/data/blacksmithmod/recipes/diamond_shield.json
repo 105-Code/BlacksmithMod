@@ -1,0 +1,17 @@
+{
+  "type": "blacksmithmod:anvil",
+  "pattern":[
+    " D ",
+    "D D",
+    " D "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "blacksmithmod:diamond_shield",
+    "count": 1
+  }
+}

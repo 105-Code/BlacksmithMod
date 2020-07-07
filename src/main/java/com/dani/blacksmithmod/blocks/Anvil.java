@@ -116,7 +116,7 @@ public class Anvil extends Block {
                 player.inventory.getCurrentItem().getItem().setDamage(player.inventory.getCurrentItem(),1);
                 TileEntity tileEntity = worldIn.getTileEntity(pos);
                 if(tileEntity instanceof AnvilTileEntity)
-                    ((AnvilTileEntity) tileEntity).addHit();
+                    ((AnvilTileEntity) tileEntity).addHit(worldIn);
 
             }else  //client side
                 worldIn.playSound(player.getPosX(),player.getPosY(),player.getPosZ(),SoundType.ANVIL.getPlaceSound(), SoundCategory.BLOCKS,1.0f,1.0f,true);
