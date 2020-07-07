@@ -1,0 +1,22 @@
+{
+  "name" : "blacksmithmod.entry.basic" ,
+  "icon" : " blacksmithmod:hammer" ,
+  "category" : "blacksmithmod:recipes",
+  "pages" : [
+    {
+      "type" : "text" ,
+      "text" : "blacksmithmod.page.basic1"
+    },
+    {
+      "type" : "crafting" ,
+      "text" : "blacksmithmod.page.basic2",
+      "recipe" : "blacksmithmod:iron_shield"
+    },
+    {
+      "type" : "crafting" ,
+      "text" : "blacksmithmod.page.basic3",
+      "recipe" : "blacksmithmod:diamond_horse_armor"
+    }
+  ]
+
+}
