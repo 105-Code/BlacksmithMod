@@ -76,6 +76,17 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
         return this.output;
     }
 
+    /**
+     * Modificar en el futuro
+     * @return
+     */
+    public ItemStack getCraftingResult(ItemStackHandler inv){
+        for(int i = 0; i< this.recipeHeight*this.recipeWidth; i++){
+           inv.getStackInSlot(i).setCount(inv.getStackInSlot(i).getCount() - 1);
+        }
+        return this.output;
+    }
+
     @Override
     public boolean canFit(int width, int height) {
         return width <= MAX_HEIGHT && height <= MAX_HEIGHT;
@@ -251,7 +262,6 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
 
         @Override
         public AnvilRecipe read (ResourceLocation recipeId, JsonObject json) {
-            System.out.println("Leyendo Receta");
             Map<String, Ingredient> map = AnvilRecipe.deserializeKey(JSONUtils.getJsonObject(json, "key"));
             String[] astring = AnvilRecipe.shrink(AnvilRecipe.patternFromJson(JSONUtils.getJsonArray(json, "pattern")));
             int i = astring[0].length();

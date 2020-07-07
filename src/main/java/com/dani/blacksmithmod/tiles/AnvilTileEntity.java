@@ -64,7 +64,7 @@ public class AnvilTileEntity extends TileEntity implements INamedContainerProvid
                 if (recipe instanceof AnvilRecipe) {
                     final AnvilRecipe anvilRecipe = (AnvilRecipe) recipe;
                     if(anvilRecipe.matches(this.materials)) {
-                        Block.spawnAsEntity(world, this.pos.add(0, 1, 0), anvilRecipe.getCraftingResult(null));
+                        Block.spawnAsEntity(world, this.pos.add(0, 1, 0), anvilRecipe.getCraftingResult(this.materials));
                         break;
                     }
                 }
