@@ -1,5 +1,6 @@
 package com.dani.blacksmithmod.setup;
 
+import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.*;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +15,9 @@ public class ItemRegister {
     public static final Item HAMMER = new Hammer();
 
     //Block Items
-    public static final BlockItem ANVIL_BLOCK_ITEM =  new AnvilBlockItem(BlockRegister.ANVIL);
+    private static final Item.Properties builder = new Item.Properties().group(BlacksmithMod.TAB);
+    public static final Item ANVIL_BLOCK_ITEM =  new BlockItem(BlockRegister.ANVIL,builder).setRegistryName("anvil");
+    public static final Item RUNIC_STONE_BLOCK_ITEM =  new BlockItem(BlockRegister.RUNIC_STONE,builder).setRegistryName("runic_stone");
 
     //Shield Items
     public static final Item GOLD_SHIELD = new ShieldBase("gold_shield", 500 );
@@ -31,6 +34,7 @@ public class ItemRegister {
         reg = ev.getRegistry();
         reg.register(HAMMER);
         reg.register(ANVIL_BLOCK_ITEM);
+        reg.register(RUNIC_STONE_BLOCK_ITEM);
         reg.registerAll(GOLD_SHIELD, IRON_SHIELD,DIAMOND_SHIELD);
     }
 
