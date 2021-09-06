@@ -1,5 +1,6 @@
-package com.dani.blacksmithmod.util;
+package com.dani.blacksmithmod.common;
 
+import com.dani.blacksmithmod.client.IProxy;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 

@@ -1,4 +1,4 @@
-package com.dani.blacksmithmod.util;
+package com.dani.blacksmithmod.client;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;

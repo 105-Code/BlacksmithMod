@@ -1,18 +1,14 @@
-package com.dani.blacksmithmod.setup;
+package com.dani.blacksmithmod.common;
 
 import com.dani.blacksmithmod.recipes.AnvilRecipe;
 import com.dani.blacksmithmod.recipes.RecipeTypeAnvil;
-import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RecipeRegister {
 
     public static final IRecipeType<AnvilRecipe> ANVIL_RECIPE = new RecipeTypeAnvil();

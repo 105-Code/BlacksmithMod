@@ -1,40 +1,26 @@
 package com.dani.blacksmithmod;
 
-import com.dani.blacksmithmod.recipes.AnvilRecipe;
-import com.dani.blacksmithmod.setup.ItemRegister;
-import com.dani.blacksmithmod.setup.RecipeRegister;
-import com.dani.blacksmithmod.util.ClientProxy;
-import com.dani.blacksmithmod.util.ClientSetup;
-import com.dani.blacksmithmod.util.IProxy;
-import com.dani.blacksmithmod.util.ServerProxy;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import com.dani.blacksmithmod.client.ClientProxy;
+import com.dani.blacksmithmod.client.ContainerScreenRegister;
+import com.dani.blacksmithmod.client.IProxy;
+import com.dani.blacksmithmod.common.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.RecipeManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.items.ItemHandlerHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Map;
-
-@Mod("blacksmithmod")
+@Mod(BlacksmithMod.MODID)
 public class BlacksmithMod {
 
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "blacksmithmod";
+    public static IEventBus MOD_EVENT_BUS;
 
     public static IProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
@@ -49,15 +35,21 @@ public class BlacksmithMod {
     };
 
     public BlacksmithMod() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        MOD_EVENT_BUS = FMLJavaModLoadingContext.get().getModEventBus();
+        registerCommonEvents();
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> BlacksmithMod::registerClientOnlyEvents);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {}
-
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        ClientSetup.init(event);
+    public static void registerCommonEvents(){
+        MOD_EVENT_BUS.register(BlockRegister.class);
+        MOD_EVENT_BUS.register(ItemRegister.class);
+        MOD_EVENT_BUS.register(RecipeRegister.class);
+        MOD_EVENT_BUS.register(TileEntityRegister.class);
+        MOD_EVENT_BUS.register(ContainerRegister.class);
     }
 
+    public static void registerClientOnlyEvents(){
+        MOD_EVENT_BUS.register(ContainerScreenRegister.class);
+    }
 }

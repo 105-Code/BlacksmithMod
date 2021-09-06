@@ -1,4 +1,4 @@
-package com.dani.blacksmithmod.setup;
+package com.dani.blacksmithmod.common;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.*;
@@ -6,10 +6,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ItemRegister {
 
     public static final Item HAMMER = new Hammer();
