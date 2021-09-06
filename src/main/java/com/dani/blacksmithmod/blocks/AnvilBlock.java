@@ -2,13 +2,20 @@ package com.dani.blacksmithmod.blocks;
 
 import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.Hammer;
-import com.dani.blacksmithmod.setup.TileEntityRegister;
+import com.dani.blacksmithmod.common.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.AnvilTileEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -18,16 +25,19 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 
 /**
- * Anvil block, this blocks is used to craft items from blacksmith mod and minecraft vanilla
+ * AnvilBlock block, this blocks is used to craft items from blacksmith mod and minecraft vanilla
  */
-public class Anvil extends Block {
+public class AnvilBlock extends ContainerBlock {
 
     //VoxelShape for the anvil block.
     private static final VoxelShape PART_BASE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 4.0D, 15.0D);
@@ -37,7 +47,7 @@ public class Anvil extends Block {
     private static final VoxelShape X_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_X, PART_MID_X, PART_UPPER_X);
 
 
-    public Anvil() {
+    public AnvilBlock() {
         super(Block.Properties.create(Material.ANVIL)
                 .hardnessAndResistance(4.8f,5.0f)
                 .sound(SoundType.ANVIL)
@@ -54,18 +64,6 @@ public class Anvil extends Block {
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
-    }
-
-    /**
-     * This method make a TileEntity to Anvil Block
-     * @param state Block state
-     * @param world World where it's.
-     * @return new AnvilTileEntity object.
-     */
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return TileEntityRegister.ANVIL_TILE_ENTITY.create();
     }
 
     /**
@@ -93,13 +91,15 @@ public class Anvil extends Block {
      */
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit){
-        if(!worldIn.isRemote()){ //when is True is Client side, and if is false es serve side
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if( tileEntity instanceof INamedContainerProvider)
-                NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, tileEntity.getPos());
+        if (worldIn.isRemote) {
+            return ActionResultType.SUCCESS;
+        } else {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            if (tileentity instanceof AnvilTileEntity) {
+                NetworkHooks.openGui((ServerPlayerEntity) player, (AnvilTileEntity) tileentity, pos);
+            }
             return ActionResultType.SUCCESS;
         }
-        return ActionResultType.PASS;
     }
 
     /**
@@ -122,5 +122,15 @@ public class Anvil extends Block {
                 worldIn.playSound(player.getPosX(),player.getPosY(),player.getPosZ(),SoundType.ANVIL.getPlaceSound(), SoundCategory.BLOCKS,1.0f,1.0f,true);
         }
     }
+
+    public TileEntity createNewTileEntity(IBlockReader worldIn) {
+        return new AnvilTileEntity();
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState iBlockState) {
+        return BlockRenderType.MODEL;
+    }
+
 
 }

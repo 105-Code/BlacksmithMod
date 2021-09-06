@@ -1,16 +1,13 @@
 package com.dani.blacksmithmod.recipes;
 
-import com.dani.blacksmithmod.setup.ItemRegister;
-import com.dani.blacksmithmod.setup.RecipeRegister;
+import com.dani.blacksmithmod.common.RecipeRegister;
+import com.dani.blacksmithmod.inventory.AnvilInventory;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.*;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,13 +19,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.Map;
 import java.util.Set;
 
-public class AnvilRecipe implements IRecipe<CraftingInventory> {
+public class AnvilRecipe implements IRecipe<AnvilInventory> {
 
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
@@ -53,38 +49,29 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
     //show the recipe
     @Override
     public String toString () {
-        return "Anvil Recipe";
+        return "AnvilBlock Recipe";
     }
 
-    //Cambiar en el futur, hacer uso de esta funcion
     @Override
-    public boolean matches(CraftingInventory inv, World worldIn) {
-        return false;
-    }
-
-    public boolean matches(ItemStackHandler crafting){
-        for(int i = 0; i< this.recipeHeight*this.recipeWidth; i++){
-            if(!this.recipeItems.get(i).test(crafting.getStackInSlot(i)))
-                return false;
+    public boolean matches(AnvilInventory inv, World worldIn) {
+        for (short i = 0 ; i < this.recipeHeight*this.recipeWidth; i++){
+            Item item = inv.getStackInSlot(i).getItem();
+            if(this.recipeItems.get(i).getMatchingStacks().length == 0){
+                if(item != Items.AIR){
+                    return false;
+                }
+            }else{
+                if(item != this.recipeItems.get(i).getMatchingStacks()[0].getItem()){
+                    return false;
+                }
+            }
         }
         return true;
     }
 
-
     @Override
-    public ItemStack getCraftingResult(CraftingInventory inv) {
-        return this.output;
-    }
-
-    /**
-     * Modificar en el futuro
-     * @return
-     */
-    public ItemStack getCraftingResult(ItemStackHandler inv){
-        for(int i = 0; i< this.recipeHeight*this.recipeWidth; i++){
-           inv.getStackInSlot(i).setCount(inv.getStackInSlot(i).getCount() - 1);
-        }
-        return this.output;
+    public ItemStack getCraftingResult(AnvilInventory inv) {
+        return this.getRecipeOutput();
     }
 
     @Override
@@ -122,7 +109,6 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
      */
     private static Map<String, Ingredient> deserializeKey(JsonObject json) {
         Map<String, Ingredient> map = Maps.newHashMap();
-
         for(Map.Entry<String, JsonElement> entry : json.entrySet()) {
             if (entry.getKey().length() != 1) {
                 throw new JsonSyntaxException("Invalid key entry: '" + (String)entry.getKey() + "' is an invalid symbol (must be 1 character only).");
@@ -241,16 +227,17 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
         }
     }
 
-    public static ItemStack deserializeItem(JsonObject p_199798_0_) {
-        String s = JSONUtils.getString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getValue(new ResourceLocation(s)).orElseThrow(() -> {
-            return  new JsonSyntaxException("Unknown item '" + s + "'");
+    public static ItemStack deserializeItem(JsonObject json) {
+        String itemResult = JSONUtils.getString(json, "item");
+        Item item = Registry.ITEM.getValue(new ResourceLocation(itemResult)).orElseThrow(() -> {
+            return  new JsonSyntaxException("Unknown item '" + itemResult + "'");
         });
-        if (p_199798_0_.has("data")) {
+        if (json.has("data")) {
             throw new JsonParseException("Disallowed data tag found");
         } else {
-            int i = JSONUtils.getInt(p_199798_0_, "count", 1);
-            return new ItemStack(item,i);
+            int itemResultCount = JSONUtils.getInt(json, "count", 1);
+            int experience = JSONUtils.getInt(json, "experience", 1);
+            return new ItemStack(item,itemResultCount);
         }
     }
 
@@ -262,13 +249,21 @@ public class AnvilRecipe implements IRecipe<CraftingInventory> {
 
         @Override
         public AnvilRecipe read (ResourceLocation recipeId, JsonObject json) {
-            Map<String, Ingredient> map = AnvilRecipe.deserializeKey(JSONUtils.getJsonObject(json, "key"));
-            String[] astring = AnvilRecipe.shrink(AnvilRecipe.patternFromJson(JSONUtils.getJsonArray(json, "pattern")));
-            int i = astring[0].length();
-            int j = astring.length;
-            NonNullList<Ingredient> nonnulllist = AnvilRecipe.deserializeIngredients(astring, map, i, j);
-            ItemStack itemstack = AnvilRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
-            return new AnvilRecipe(recipeId,nonnulllist,itemstack,i,j);
+            Map<String, Ingredient> key = AnvilRecipe.deserializeKey(JSONUtils.getJsonObject(json, "key"));
+
+            String[] pattern = AnvilRecipe.shrink(AnvilRecipe.patternFromJson(JSONUtils.getJsonArray(json, "pattern")));
+            int X = pattern[0].length();
+            int Y = pattern.length;
+
+            NonNullList<Ingredient> ingredients = AnvilRecipe.deserializeIngredients(pattern, key, X, Y);
+            ItemStack result = AnvilRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
+            ingredients.forEach( item ->{
+                System.out.println("Tamaño "+item.getMatchingStacks().length);
+                if(item.getMatchingStacks().length >0){
+                    System.out.println(item.getMatchingStacks()[0].getItem().getRegistryName().toString());
+                }
+            });
+            return new AnvilRecipe(recipeId,ingredients,result,X,Y);
         }
 
         @Override

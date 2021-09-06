@@ -1,36 +1,56 @@
 package com.dani.blacksmithmod.containers;
 
+import com.dani.blacksmithmod.common.ContainerRegister;
+import com.dani.blacksmithmod.inventory.AnvilInventory;
 import com.dani.blacksmithmod.objects.IngredientSlot;
-import com.dani.blacksmithmod.setup.BlockRegister;
-import com.dani.blacksmithmod.setup.ContainerRegister;
 import com.dani.blacksmithmod.tiles.AnvilTileEntity;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
+
+import java.util.Objects;
 
 public class AnvilContainer extends Container {
 
-    private AnvilTileEntity tileEntity;
-    private PlayerEntity playerEntity;
-    private ItemStackHandler ingredients;
+    private final IInventory anvilInventoryIn;
 
-    public AnvilContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
+
+
+    public AnvilContainer(int windowId, PlayerInventory playerInventory, IInventory anvilInventoryIn) {
         super(ContainerRegister.ANVIL_CONTAINER, windowId);
-        tileEntity = (AnvilTileEntity) world.getTileEntity(pos);
-        this.ingredients = tileEntity.getMaterials();
-        this.playerEntity = player;
         this.addPlayerSlots(playerInventory);
+        this.anvilInventoryIn = anvilInventoryIn;
         this.anvilSlots();
     }
 
+    public AnvilContainer(final int windowId, final PlayerInventory playerInv, final PacketBuffer data) {
+        this(windowId, playerInv, getTileEntity(playerInv, data));
+    }
+
+    private static AnvilInventory getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
+        Objects.requireNonNull(playerInv, "Player Inventory cannot be null.");
+        Objects.requireNonNull(data, "Packet Buffer cannot be null.");
+        final TileEntity te = playerInv.player.world.getTileEntity(data.readBlockPos());
+        if (te instanceof AnvilTileEntity) {
+            return ((AnvilTileEntity) te).getInventory();
+        }
+        throw new IllegalStateException("Tile Entity Is Not Correct");
+    }
+
+
+
     /**
-     *  when the player use shift + click to transfer items between Anvil Gui and Player Inventory
+     *  when the player use shift + click to transfer items between AnvilBlock Gui and Player Inventory
      * @param playerIn player
      * @param fromSlot slot where execute de comand shift + click
      * @return item stack empty to clean slot or the stack what did player want to move.
@@ -86,11 +106,10 @@ public class AnvilContainer extends Container {
         int index = 0;
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                this.addSlot(new IngredientSlot(this.ingredients, index, 62 + col  * 18, 14 + row * 18));
+                this.addSlot(new Slot(this.anvilInventoryIn, index, 62 + col  * 18, 14 + row * 18));
                 ++index;
             }
         }
-
     }
 
     /**
@@ -100,8 +119,7 @@ public class AnvilContainer extends Container {
      */
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, BlockRegister.ANVIL);
+        return true;
     }
-
 
 }

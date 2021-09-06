@@ -1,5 +1,6 @@
 package com.dani.blacksmithmod.objects;
 
+import net.minecraft.block.Blocks;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
