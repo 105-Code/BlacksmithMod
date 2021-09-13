@@ -4,6 +4,7 @@ import com.dani.blacksmithmod.BlacksmithMod;
 import com.dani.blacksmithmod.items.Hammer;
 import com.dani.blacksmithmod.common.TileEntityRegister;
 import com.dani.blacksmithmod.tiles.AnvilTileEntity;
+import com.dani.blacksmithmod.tiles.ForgeTileEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,6 +25,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -56,6 +58,20 @@ public class AnvilBlock extends ContainerBlock {
         this.setRegistryName(BlacksmithMod.MODID,"anvil");
     }
 
+    public ForgeTileEntity getForgeTileEntity(World world, BlockPos position){
+        for (int x = position.getX()-1; x <= position.getX()+1; x++){
+            for (int z = position.getZ()-1; z<= position.getZ()+1; z++){
+                BlockPos searchPos = new BlockPos(x,position.getY(),z);
+                TileEntity tileentity = world.getTileEntity(searchPos);
+                if (tileentity instanceof ForgeTileEntity) {
+                    return (ForgeTileEntity) tileentity;
+                }
+
+            }
+        }
+       return null;
+    }
+
     /**
      * Verify if this block has TileEntity
      * @param state Block state
@@ -78,7 +94,6 @@ public class AnvilBlock extends ContainerBlock {
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return X_AXIS_AABB;
     }
-
     /**
      * When the player use right click in it
      * @param state Block State

@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
+version = '1.1.0'
 group = 'com.dani.blacksmithmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'blacksmithmod'
 
@@ -85,39 +85,11 @@ minecraft {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        name "yarn2mcp"
-        url "https://maven.tterrag.com/"
-    }
-    maven {
-        url "https://maven.blamejared.com"
-    }
-    maven {
-        url "https://dvs1.progwml6.com/files/maven"
-    }
-    maven {
-        url "https://minecraft.curseforge.com/api/maven/"
-    }
-    maven {
-        name "curios"
-        url "https://maven.theillusivec4.top/"
-    }
-}
-
-
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
-
-/*
-Pacholi ya no es prioridad
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.185:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.185")
-*/
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -144,11 +116,11 @@ jar {
     manifest {
         attributes([
             "Specification-Title": "blacksmithmod",
-            "Specification-Vendor": "blacksmithmod",
+            "Specification-Vendor": "examplemodsareus",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"blacksmithmod",
+            "Implementation-Vendor" :"examplemodsareus",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

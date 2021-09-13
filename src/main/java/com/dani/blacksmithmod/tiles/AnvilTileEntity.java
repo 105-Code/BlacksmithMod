@@ -1,24 +1,17 @@
 package com.dani.blacksmithmod.tiles;
 
+import com.dani.blacksmithmod.blocks.AnvilBlock;
 import com.dani.blacksmithmod.common.RecipeRegister;
 import com.dani.blacksmithmod.containers.AnvilContainer;
 import com.dani.blacksmithmod.common.TileEntityRegister;
 import com.dani.blacksmithmod.inventory.AnvilInventory;
 import com.dani.blacksmithmod.recipes.AnvilRecipe;
-import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.AbstractCookingRecipe;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.INameable;
@@ -62,16 +55,23 @@ public class AnvilTileEntity extends TileEntity implements INamedContainerProvid
      */
     public void addHit(World world){
         if(this.getHits() > 4){
+            AnvilBlock anvil = (AnvilBlock) world.getBlockState(this.pos).getBlock();
+            ForgeTileEntity forge = anvil.getForgeTileEntity(world,this.pos);
+            if(forge != null){
+                Optional<AnvilRecipe> matchingRecipe = world.getServer().getRecipeManager().getRecipe(RecipeRegister.ANVIL_RECIPE,  this.inventory, world);
+                if(matchingRecipe.isPresent()){
+                    System.out.print("Temperatura de la receta: "+matchingRecipe.get().getTemperature());
+                    if(forge.getTemperature()>= matchingRecipe.get().getTemperature()){
 
-            //aqui debería ver el bloque adyacente para ver la temperatura.
+                        this.inventory.clear();
+                        Block.spawnAsEntity(world,this.pos.add(0,1,0),matchingRecipe.get().getCraftingResult(this.inventory));
 
-            this.setHits(0);
-            Optional<AnvilRecipe> matchingRecipe = world.getServer().getRecipeManager().getRecipe(RecipeRegister.ANVIL_RECIPE,  this.inventory, world);
-            if (matchingRecipe.isPresent()) {
-                this.inventory.clear();
-                Block.spawnAsEntity(world,this.pos.add(0,1,0),matchingRecipe.get().getCraftingResult(this.inventory));
+                    }else{
+                        System.out.print("Temperatura insuficiente con "+forge.getTemperature());
+                    }
+                }
+
             }
-
             this.setHits(1);
         }else
             this.setHits(this.getHits()+1);
