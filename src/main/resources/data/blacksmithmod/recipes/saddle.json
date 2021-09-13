@@ -13,8 +13,10 @@
       "item": "minecraft:leather"
     }
   },
+  "temperature": 300,
   "result": {
     "item": "minecraft:saddle",
+    "experience": 2,
     "count": 1
   }
 }

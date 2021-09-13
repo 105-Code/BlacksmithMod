@@ -10,8 +10,10 @@
       "item": "minecraft:diamond"
     }
   },
+  "temperature": 700,
   "result": {
     "item": "minecraft:diamond_horse_armor",
+    "experience": 2,
     "count": 1
   }
 }

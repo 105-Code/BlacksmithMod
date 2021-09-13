@@ -10,8 +10,10 @@
       "item": "minecraft:gold_ingot"
     }
   },
+  "temperature": 300,
   "result": {
     "item": "minecraft:golden_horse_armor",
+    "experience": 2,
     "count": 1
   }
 }

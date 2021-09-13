@@ -37,19 +37,31 @@ public class AnvilRecipe implements IRecipe<AnvilInventory> {
     private final ResourceLocation id;
     private final int recipeWidth;
     private final int recipeHeight;
+    private final int experience;
+    private final int temperature;
 
-    public AnvilRecipe(ResourceLocation id, NonNullList<Ingredient> recipeItemsIn, ItemStack output,int recipeWidthIn, int recipeHeightIn){
+    public AnvilRecipe(ResourceLocation id, NonNullList<Ingredient> recipeItemsIn, ItemStack output,int recipeWidthIn, int recipeHeightIn,int experience, int temperature){
         this.id = id;
         this.recipeItems = recipeItemsIn;
         this.output = output;
         this.recipeWidth = recipeWidthIn;
         this.recipeHeight = recipeHeightIn;
+        this.experience = experience;
+        this.temperature= temperature;
     }
 
     //show the recipe
     @Override
     public String toString () {
         return "AnvilBlock Recipe";
+    }
+
+    public int getTemperature(){
+        return this.temperature;
+    }
+
+    public int getExperience(){
+        return this.experience;
     }
 
     @Override
@@ -257,31 +269,33 @@ public class AnvilRecipe implements IRecipe<AnvilInventory> {
 
             NonNullList<Ingredient> ingredients = AnvilRecipe.deserializeIngredients(pattern, key, X, Y);
             ItemStack result = AnvilRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
-            ingredients.forEach( item ->{
-                System.out.println("Tamaño "+item.getMatchingStacks().length);
-                if(item.getMatchingStacks().length >0){
-                    System.out.println(item.getMatchingStacks()[0].getItem().getRegistryName().toString());
-                }
-            });
-            return new AnvilRecipe(recipeId,ingredients,result,X,Y);
+
+            int temperature = JSONUtils.getInt(json, "temperature", 1);
+            int experience = JSONUtils.getInt(JSONUtils.getJsonObject(json, "result"), "experience", 1);
+
+            return new AnvilRecipe(recipeId,ingredients,result,X,Y,experience,temperature);
         }
 
         @Override
         public AnvilRecipe read (ResourceLocation recipeId, PacketBuffer buffer) {
             int i = buffer.readVarInt();
             int j = buffer.readVarInt();
+            int temperature = buffer.readVarInt();
+            int experience = buffer.readVarInt();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(MAX_WIDTH*MAX_HEIGHT, Ingredient.EMPTY);
             for(int k = 0; k < nonnulllist.size(); ++k) {
                 nonnulllist.set(k, Ingredient.read(buffer));
             }
             ItemStack itemstack = buffer.readItemStack();
-            return new AnvilRecipe(recipeId,nonnulllist, itemstack,i,j);
+            return new AnvilRecipe(recipeId,nonnulllist, itemstack,i,j,experience,temperature);
         }
 
         @Override
         public void write (PacketBuffer buffer, AnvilRecipe recipe) {
             buffer.writeVarInt(recipe.recipeWidth);
             buffer.writeVarInt(recipe.recipeHeight);
+            buffer.writeVarInt(recipe.experience);
+            buffer.writeVarInt(recipe.temperature);
             for(Ingredient ingredient : recipe.recipeItems) {
                 ingredient.write(buffer);
             }

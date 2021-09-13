@@ -10,8 +10,10 @@
       "item": "minecraft:iron_ingot"
     }
   },
+  "temperature": 300,
   "result": {
     "item": "blacksmithmod:iron_shield",
+    "experience": 2,
     "count": 1
   }
 }

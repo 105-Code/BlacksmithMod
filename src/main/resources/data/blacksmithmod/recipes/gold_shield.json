@@ -10,8 +10,10 @@
       "item": "minecraft:gold_ingot"
     }
   },
+  "temperature": 500,
   "result": {
     "item": "blacksmithmod:gold_shield",
+    "experience": 2,
     "count": 1
   }
 }

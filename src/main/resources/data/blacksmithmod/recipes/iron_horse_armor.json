@@ -10,8 +10,10 @@
       "item": "minecraft:iron_ingot"
     }
   },
+  "temperature": 300,
   "result": {
     "item": "minecraft:iron_horse_armor",
+    "experience": 2,
     "count": 1
   }
 }

@@ -10,8 +10,10 @@
       "item": "minecraft:diamond"
     }
   },
+  "temperature": 700,
   "result": {
     "item": "blacksmithmod:diamond_shield",
+    "experience": 2,
     "count": 1
   }
 }
