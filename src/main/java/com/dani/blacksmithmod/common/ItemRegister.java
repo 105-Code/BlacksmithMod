@@ -15,7 +15,12 @@ public class ItemRegister {
     //Block Items
     private static final Item.Properties builder = new Item.Properties().group(BlacksmithMod.TAB);
     public static final Item ANVIL_BLOCK_ITEM =  new BlockItem(BlockRegister.ANVIL,builder).setRegistryName("anvil");
+    public static final Item NETHER_FORGE_BLOCK_ITEM =  new BlockItem(BlockRegister.NETHER_FORGE,builder).setRegistryName("nether_forge");
+    public static final Item BRICK_FORGE_BLOCK_ITEM =  new BlockItem(BlockRegister.BRICK_FORGE,builder).setRegistryName("brick_forge");
+    public static final Item STONE_FORGE_BLOCK_ITEM =  new BlockItem(BlockRegister.STONE_FORGE,builder).setRegistryName("stone_forge");
     public static final Item RUNIC_STONE_BLOCK_ITEM =  new BlockItem(BlockRegister.RUNIC_STONE,builder).setRegistryName("runic_stone");
+
+    public static final Item CHIMNEY =  new BlockItem(BlockRegister.CHIMNEY,builder).setRegistryName("chimney");
 
     //Shield Items
     public static final Item GOLD_SHIELD = new ShieldBase("gold_shield", 500 );
@@ -46,7 +51,8 @@ public class ItemRegister {
         reg.register(RUNIC_STONE_BLOCK_ITEM);
         reg.registerAll(GOLD_SHIELD, IRON_SHIELD,DIAMOND_SHIELD);
         reg.registerAll(FIRE_RUNE,POISON_RUNE,MUNDANE_RUNE);
-
+        reg.registerAll(NETHER_FORGE_BLOCK_ITEM,BRICK_FORGE_BLOCK_ITEM,STONE_FORGE_BLOCK_ITEM);
+        reg.register(CHIMNEY);
         //override items
         reg.registerAll(DIAMOND_SWORD,GOLDEN_SWORD,IRON_SWORD);
 
